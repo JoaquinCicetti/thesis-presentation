@@ -1,0 +1,22 @@
+.main-title {
+    margin: 0 auto;
+    max-width: 960px;
+    font-size: 3em;
+    text-align: center;
+}
+.author {
+    max-width: 420px;
+    margin: 2em auto;
+
+    div {
+        margin: 0;
+        font-size: 2em;
+        display: flex;
+        align-items: center;
+        .avatar {
+            filter: grayscale(0.5);
+            max-width: 72px;
+            margin: 0.5em;
+        }
+    }
+}

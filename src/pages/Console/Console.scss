@@ -1,0 +1,16 @@
+.asks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 720px;
+    margin: auto;
+    .ask {
+        display: flex;
+        align-items: center;
+        font-size: 3em;
+        .icon {
+            max-width: 128px;
+            margin: 1em;
+        }
+    }
+}

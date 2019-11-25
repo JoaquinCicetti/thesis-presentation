@@ -1,0 +1,13 @@
+    @import '../../theme.scss';
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0.5em 0;
+    z-index: 2;
+    
+}

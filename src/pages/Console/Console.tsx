@@ -10,7 +10,7 @@ const Console: React.FC = () => {
     return (
         <div className="slide">
             <div className="console">
-                
+
             </div>
             <hr />
         </div>

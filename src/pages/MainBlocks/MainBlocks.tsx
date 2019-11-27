@@ -3,11 +3,17 @@ import posed, { PoseGroup } from 'react-pose';
 import { useTitle } from '../../hooks';
 import './MainBlocks.scss';
 
-const AnimatedList = posed.div({
-    exit: { opacity: 0, staggerChildren: 400 },
-    enter: { opacity: 1, staggerChildren: 400 },
+const AnimatedList = posed.ul({
+    exit: {
+        opacity: 0,
+    },
+    enter: {
+        opacity: 1,
+        beforeChildren: true,
+        staggerChildren: 400,
+    },
 });
-const AnimatedItem = posed.div({
+const AnimatedItem = posed.li({
     exit: { opacity: 0, rotateX: '-90deg' },
     enter: { opacity: 1, rotateX: '0deg' },
 });
@@ -16,7 +22,8 @@ const WhatIs: React.FC = () => {
 
     useEffect(() => {
         updateTitle('Partes fundamentales');
-    }, []);
+        console.log('enter');
+    }, [updateTitle]);
     return (
         <div className="slide">
             <AnimatedList className="main-blocks">

@@ -27,6 +27,7 @@ label {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     .router {
         height: 90vh;
     }
@@ -72,6 +73,7 @@ label {
     right: -50%;
     top: 0;
     z-index: -1;
+    width: 100vw;
 }
 
 .bg2 {

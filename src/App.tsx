@@ -1,13 +1,21 @@
 import React, { useRef } from 'react';
 import posed, { PoseGroup } from 'react-pose';
 import { Route, Switch, Link } from 'react-router-dom';
-import { Calibration, Console, MainBlocks, Title, WhatIs, pageIndex } from './pages';
+import {
+    Calibration,
+    Console,
+    CurrentSituation,
+    MainBlocks,
+    Title,
+    WhatIs,
+    pageIndex,
+} from './pages';
 import { useTitle, useKeyDown } from './hooks';
 import './App.scss';
 
 const RouteContainer = posed.div({
-    enter: { opacity: 1, height: '90vh' },
-    exit: { opacity: 0, height: 0 },
+    enter: { opacity: 1 },
+    exit: { opacity: 0 },
     collapsed: { height: 0 },
 });
 
@@ -84,6 +92,11 @@ const App: React.FC = () => {
                                         key="main-blocks"
                                     />
                                     <Route path={`/console`} component={Console} key="console" />
+                                    <Route
+                                        path={`/current-situation`}
+                                        component={CurrentSituation}
+                                        key="current-situation"
+                                    />
                                 </Switch>
                             </RouteContainer>
                             <Controls

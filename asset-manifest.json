@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/thesis-presentation/static/css/main.fdd24090.chunk.css",
+    "main.js": "/thesis-presentation/static/js/main.d7c4fe36.chunk.js",
+    "main.js.map": "/thesis-presentation/static/js/main.d7c4fe36.chunk.js.map",
+    "runtime-main.js": "/thesis-presentation/static/js/runtime-main.5a70276e.js",
+    "runtime-main.js.map": "/thesis-presentation/static/js/runtime-main.5a70276e.js.map",
+    "static/css/2.1af7a3c5.chunk.css": "/thesis-presentation/static/css/2.1af7a3c5.chunk.css",
+    "static/js/2.89808b7a.chunk.js": "/thesis-presentation/static/js/2.89808b7a.chunk.js",
+    "static/js/2.89808b7a.chunk.js.map": "/thesis-presentation/static/js/2.89808b7a.chunk.js.map",
+    "index.html": "/thesis-presentation/index.html",
+    "precache-manifest.edb6c5070f904b6e8639ab820e368708.js": "/thesis-presentation/precache-manifest.edb6c5070f904b6e8639ab820e368708.js",
+    "service-worker.js": "/thesis-presentation/service-worker.js",
+    "static/css/2.1af7a3c5.chunk.css.map": "/thesis-presentation/static/css/2.1af7a3c5.chunk.css.map",
+    "static/css/main.fdd24090.chunk.css.map": "/thesis-presentation/static/css/main.fdd24090.chunk.css.map",
+    "static/media/App.scss": "/thesis-presentation/static/media/Exo2.0-Light.6521d7ea.otf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5a70276e.js",
+    "static/css/2.1af7a3c5.chunk.css",
+    "static/js/2.89808b7a.chunk.js",
+    "static/css/main.fdd24090.chunk.css",
+    "static/js/main.d7c4fe36.chunk.js"
+  ]
+}

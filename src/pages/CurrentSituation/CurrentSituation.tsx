@@ -60,7 +60,7 @@ const sources: Array<ImageData> = [
 const CurrentSituation: React.FC = () => {
     const { updateTitle } = useTitle();
     const [index, setIndex] = useState(sources.length - 1);
-
+    const urlPrefix = process.env.NODE_ENV === 'development' ? '/images' : '/thesis-presentation/images';
     useEffect(() => {
         updateTitle(' ');
         const interval = setInterval(() => {
@@ -74,7 +74,7 @@ const CurrentSituation: React.FC = () => {
             <Overlay className="overlay" key="overlay" />
             <AnimatedList key="list" className="slide currentSituation">
                 {sources.map(({ name, alt }, i: number) => {
-                    const src = `images/${name}.jpg`;
+                    const src = `${urlPrefix}/${name}.jpg`;
                     return (
                         <AnimatedImg
                             className="picture"

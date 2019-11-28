@@ -56,6 +56,7 @@ const App: React.FC = () => {
     const leftArrow = useRef(null);
     const rightArrow = useRef(null);
     const { title } = useTitle();
+    const urlPrefix = process.env.NODE_ENV === 'development' ? '/icons' : '/thesis-presentation/icons';
     useKeyDown({
         ArrowLeft: _ => {
             if (leftArrow && leftArrow.current && typeof leftArrow.current.click === 'function')
@@ -127,7 +128,7 @@ const App: React.FC = () => {
                                         <img
                                             alt="icon-arrow-right"
                                             className="left"
-                                            src="../Icons/arrow-right.png"
+                                            src={`${urlPrefix}/arrow-right.png`}
                                         />
                                     </Link>
                                 )}
@@ -137,10 +138,10 @@ const App: React.FC = () => {
                                         {index >= 0 ? (
                                             <img
                                                 alt="icon-arrow-right"
-                                                src="../Icons/arrow-right.png"
+                                                src={`${urlPrefix}/arrow-right.png`}
                                             />
                                         ) : (
-                                            <img alt="icon-play" src="../Icons/play.png" />
+                                            <img alt="icon-play" src={`${urlPrefix}/play.png`} />
                                         )}
                                     </Link>
                                 )}

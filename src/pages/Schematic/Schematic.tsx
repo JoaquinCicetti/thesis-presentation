@@ -10,12 +10,14 @@ const Img = posed.img({
 
 const Schematic: React.FC = () => {
     const { updateTitle } = useTitle();
+    const urlPrefix =
+        process.env.NODE_ENV === 'development' ? '/images' : '/thesis-presentation/images';
     useEffect(() => {
         updateTitle('Esquemático');
     }, []);
     return (
         <div className="slide">
-            <Img src="/images/schematic.png" />
+            <Img src={`${urlPrefix}/schematic.png`} />
         </div>
     );
 };

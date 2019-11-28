@@ -18,7 +18,7 @@ const AnimatedItem = posed.li({
 });
 const WhatIs: React.FC = () => {
     const { updateTitle } = useTitle();
-
+    const urlPrefix = process.env.NODE_ENV === 'development' ? '/icons' : '/thesis-presentation/icons';
     useEffect(() => {
         updateTitle(' ');
         console.log('enter');
@@ -27,15 +27,15 @@ const WhatIs: React.FC = () => {
         <div className="slide">
             <AnimatedList className="main-blocks">
                 <AnimatedItem key="engine" className="block first">
-                    <img className="icon" src="Icons/engine.png" />
+                    <img className="icon" src={`${urlPrefix}/engine.png`} />
                     <span className="name">Motor</span>
                 </AnimatedItem>
                 <AnimatedItem key="panel" className="block">
-                    <img className="icon" src="Icons/panel.png" />
+                    <img className="icon" src={`${urlPrefix}/panel.png`} />
                     <span className="name">Consola</span>
                 </AnimatedItem>
                 <AnimatedItem key="break" className="block">
-                    <img className="icon" src="Icons/break-small.png" />
+                    <img className="icon" src={`${urlPrefix}/break-small.png`} />
                     <span className="name">Freno</span>
                 </AnimatedItem>
             </AnimatedList>

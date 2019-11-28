@@ -10,13 +10,14 @@ const Icon = posed.div({
 
 const Console: React.FC = () => {
     const { updateTitle } = useTitle();
+    const urlPrefix = process.env.NODE_ENV === 'development' ? '/icons' : '/thesis-presentation/icons';
     useEffect(() => {
         updateTitle('🕹');
     }, []);
     return (
         <div className="slide">
             <Icon className="console">
-                <img className="icon" src="Icons/panel.png" />
+                <img className="icon" src={`${urlPrefix}/panel.png`} />
             </Icon>
         </div>
     );

@@ -4,6 +4,7 @@ import './Title.scss';
 
 const Title: React.FC = () => {
     const { updateTitle } = useTitle();
+    const urlPrefix = process.env.NODE_ENV === 'development' ? '/icons' : '/thesis-presentation/icons';
     useEffect(() => {
         updateTitle('Proyecto final de ingeniería');
     }, []);
@@ -16,17 +17,17 @@ const Title: React.FC = () => {
                 <span>Alumnos</span>
                 <hr />
                 <div>
-                    <img className="avatar" src="Icons/avatar.png" />
+                    <img className="avatar" src={`${urlPrefix}/avatar.png`} />
                     Cicetti, Joaquín
                 </div>
                 <div>
-                    <img className="avatar" src="Icons/avatar.png" />
+                    <img className="avatar" src={`${urlPrefix}/avatar.png`} />
                     Morelli, Nahuel
                 </div>
                 <span>Director</span>
                 <hr />
                 <div>
-                    <img className="avatar director" src="Icons/avatar-director.png" />
+                    <img className="avatar director" src={`${urlPrefix}/avatar-director.png`} />
                     Simón, José
                 </div>
             </div>

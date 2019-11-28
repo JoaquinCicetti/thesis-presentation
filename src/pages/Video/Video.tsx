@@ -9,13 +9,15 @@ type Player = {
     };
 };
 const Video: React.FC = () => {
+    const urlPrefix =
+        process.env.NODE_ENV === 'development' ? '/videos' : '/thesis-presentation/videos';
     const { updateTitle } = useTitle();
     useEffect(() => {
         updateTitle(' ');
     }, []);
     return (
         <div className="video">
-            <Player autoPlay src="/videos/calibration.mp4">
+            <Player autoPlay src={`${urlPrefix}/calibration.mp4`}>
                 <ControlBar disableCompletely />
             </Player>
         </div>

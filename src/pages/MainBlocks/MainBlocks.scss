@@ -11,6 +11,7 @@
         position: relative;
         align-items: center;
         justify-content: center;
+        opacity: 0;
         .icon {
             max-width: 140px;
             width: 100%;
@@ -30,7 +31,7 @@
             background: $primaryColor;
             animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
             animation-name: lines;
-            animation-duration: 1s;
+            animation-duration: 1.5s;
             width: 440px;
         }
     }

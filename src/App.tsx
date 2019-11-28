@@ -6,37 +6,47 @@ import {
     Console,
     CurrentSituation,
     MainBlocks,
+    pageIndex,
     Title,
     WhatIs,
-    pageIndex,
+    Speed,
+    Thanks,
+    Torque,
 } from './pages';
 import { useTitle, useKeyDown } from './hooks';
 import './App.scss';
 
 const RouteContainer = posed.div({
-    enter: { opacity: 1 },
-    exit: { opacity: 0 },
-    collapsed: { height: 0 },
+    enter: {
+        opacity: 1,
+        left: 0,
+        transition: {
+            default: { duration: 500 },
+        },
+    },
+    exit: { opacity: 0, left: '-30%' },
 });
 
 const Header = posed.span({
     collapsed: {
-        fontSize: '1em',
-        height: '5vh',
-        transition: { duration: 500 },
+        fontSize: '2em',
+        height: '10vh',
+        transition: { duration: 200 },
     },
     expanded: {
         fontSize: '3em',
         height: '50vh',
-        transition: { duration: 500 },
+        transition: { duration: 200 },
     },
 });
 const Controls = posed.div({
     collapsed: {
         height: '5vh',
+        transition: { duration: 200 },
     },
     expanded: {
         height: '50vh',
+        transition: { duration: 200 },
     },
 });
 const App: React.FC = () => {
@@ -58,8 +68,6 @@ const App: React.FC = () => {
     return (
         <div className="app">
             <div className="bg"></div>
-            <div className="bg bg2"></div>
-            <div className="bg bg3"></div>
             <Route
                 render={({ location }) => {
                     const { pathname } = location;
@@ -74,22 +82,12 @@ const App: React.FC = () => {
                                 pose={index === -1 ? 'expanded' : 'collapsed'}>
                                 {title}
                             </Header>
-                            <RouteContainer
-                                className={'router'}
-                                key={`routerContainer${location.key}`}
-                                pose={index === -1 && `collapsed`}>
+                            <RouteContainer key={`routerContainer${location.key}`}>
                                 <Switch location={location} key={'switch'}>
-                                    <Route path={`/title`} component={Title} key="title" />
-                                    <Route path={`/what-is`} component={WhatIs} key="what-is" />
                                     <Route
                                         path={`/calibration`}
                                         component={Calibration}
                                         key="calibration"
-                                    />
-                                    <Route
-                                        path={`/main-blocks`}
-                                        component={MainBlocks}
-                                        key="main-blocks"
                                     />
                                     <Route path={`/console`} component={Console} key="console" />
                                     <Route
@@ -97,6 +95,17 @@ const App: React.FC = () => {
                                         component={CurrentSituation}
                                         key="current-situation"
                                     />
+
+                                    <Route
+                                        path={`/main-blocks`}
+                                        component={MainBlocks}
+                                        key="main-blocks"
+                                    />
+                                    <Route path={`/speed`} component={Speed} key="speed" />
+                                    <Route path={`/thanks`} component={Thanks} key="thanks" />
+                                    <Route path={`/title`} component={Title} key="title" />
+                                    <Route path={`/torque`} component={Torque} key="torque" />
+                                    <Route path={`/what-is`} component={WhatIs} key="what-is" />
                                 </Switch>
                             </RouteContainer>
                             <Controls
@@ -105,16 +114,23 @@ const App: React.FC = () => {
                                 pose={index === -1 ? 'expanded' : 'collapsed'}>
                                 {index >= 0 && (
                                     <Link ref={leftArrow} id="backButton" to={`/${prevSlide}`}>
-                                        <img className="left" src="../Icons/arrow-right.png" />
+                                        <img
+                                            alt="icon-arrow-right"
+                                            className="left"
+                                            src="../Icons/arrow-right.png"
+                                        />
                                     </Link>
                                 )}
                                 {index >= 0 && <span className="index">{index}</span>}
                                 {index < pageIndex.length && (
                                     <Link ref={rightArrow} to={`/${nextSlide}`}>
                                         {index >= 0 ? (
-                                            <img src="../Icons/arrow-right.png" />
+                                            <img
+                                                alt="icon-arrow-right"
+                                                src="../Icons/arrow-right.png"
+                                            />
                                         ) : (
-                                            <img src="../Icons/play.png" />
+                                            <img alt="icon-play" src="../Icons/play.png" />
                                         )}
                                     </Link>
                                 )}

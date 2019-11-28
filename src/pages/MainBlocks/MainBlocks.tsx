@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import posed, { PoseGroup } from 'react-pose';
+import posed from 'react-pose';
 import { useTitle } from '../../hooks';
 import './MainBlocks.scss';
 
@@ -9,8 +9,7 @@ const AnimatedList = posed.ul({
     },
     enter: {
         opacity: 1,
-        beforeChildren: true,
-        staggerChildren: 400,
+        staggerChildren: 500,
     },
 });
 const AnimatedItem = posed.li({
@@ -21,26 +20,24 @@ const WhatIs: React.FC = () => {
     const { updateTitle } = useTitle();
 
     useEffect(() => {
-        updateTitle('Partes fundamentales');
+        updateTitle(' ');
         console.log('enter');
-    }, [updateTitle]);
+    }, []);
     return (
         <div className="slide">
             <AnimatedList className="main-blocks">
-                <PoseGroup>
-                    <AnimatedItem key="engine" className="block first">
-                        <img className="icon" src="Icons/engine.png" />
-                        <span className="name">Motor</span>
-                    </AnimatedItem>
-                    <AnimatedItem key="panel" className="block">
-                        <img className="icon" src="Icons/panel.png" />
-                        <span className="name">Consola</span>
-                    </AnimatedItem>
-                    <AnimatedItem key="break" className="block">
-                        <img className="icon" src="Icons/break-small.png" />
-                        <span className="name">Freno</span>
-                    </AnimatedItem>
-                </PoseGroup>
+                <AnimatedItem key="engine" className="block first">
+                    <img className="icon" src="Icons/engine.png" />
+                    <span className="name">Motor</span>
+                </AnimatedItem>
+                <AnimatedItem key="panel" className="block">
+                    <img className="icon" src="Icons/panel.png" />
+                    <span className="name">Consola</span>
+                </AnimatedItem>
+                <AnimatedItem key="break" className="block">
+                    <img className="icon" src="Icons/break-small.png" />
+                    <span className="name">Freno</span>
+                </AnimatedItem>
             </AnimatedList>
             <hr />
         </div>

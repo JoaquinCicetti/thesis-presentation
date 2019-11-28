@@ -1,55 +1,92 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import posed, { PoseGroup } from 'react-pose';
+import React, { useEffect, useState } from 'react';
+import posed from 'react-pose';
 import { useTitle } from '../../hooks';
 import './CurrentSituation.scss';
 
-const AnimatedList = posed.ul({
+const AnimatedList = posed.div({
     exit: {
         opacity: 0,
     },
     enter: {
         opacity: 1,
-        beforeChildren: true,
-        staggerChildren: 400,
+        staggerChildren: 100,
+        delayChildren: 350,
+        transition: {
+            default: { duration: 100 },
+        },
     },
 });
-const AnimatedImg = posed.img({
+const Overlay = posed.div({
+    exit: {
+        opacity: 0,
+        zIndex: 0,
+    },
+    enter: {
+        opacity: 1,
+        zIndex: 2,
+        transition: {
+            default: { duration: 100 },
+        },
+    },
+});
+const AnimatedImg = posed.div({
     exit: { opacity: 0 },
     enter: { opacity: 1 },
-    selected: { scale: 1.2, x: '-20%', y: '-20%', zIndex: 3 },
-    unselected: { scale: 1, x: '0%', y: '0%', zIndex: 1 },
+    selected: {
+        zIndex: 3,
+        scale: 1.3,
+        transition: {
+            default: { ease: 'easeOut', duration: 400 },
+            zIndex: { duration: 100 },
+        },
+    },
+    unselected: {
+        zIndex: 1,
+        scale: 1,
+        transition: {
+            default: { ease: 'easeOut', duration: 400 },
+            zIndex: { duration: 100 },
+        },
+    },
 });
-const sources: Array<string> = ['console', 'console-2', 'break', 'engine', 'sensor'];
+type ImageData = { name: string; alt: string };
+const sources: Array<ImageData> = [
+    { name: 'console', alt: 'Consola' },
+    { name: 'break', alt: 'Freno' },
+    { name: 'sensor', alt: 'Encoder' },
+    { name: 'console-2', alt: 'Detalle consola' },
+    { name: 'engine', alt: 'Motor y freno' },
+];
 const CurrentSituation: React.FC = () => {
     const { updateTitle } = useTitle();
-    const [index, setIndex] = useState(0);
-    const updateIndex = () => {
-        console.log(index);
-        if (index >= sources.length - 1) setIndex(0);
-        else setIndex(index + 1);
-    };
+    const [index, setIndex] = useState(sources.length - 1);
+
     useEffect(() => {
-        updateTitle('Un banco de pruebas?');
-        const id = setInterval(updateIndex, 2500);
-        return () => clearInterval(id);
-    }, [updateIndex]);
-    const reversed = useMemo(() => sources.reverse(), [sources]);
+        updateTitle(' ');
+        const interval = setInterval(() => {
+            setIndex((index: number) => (index >= sources.length - 1 ? 0 : index + 1));
+        }, 15000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
-        <AnimatedList className="slide currentSituation">
-            <PoseGroup>
-                {reversed.map((name: string, i: number) => {
+        <div className="container">
+            <Overlay className="overlay" key="overlay" />
+            <AnimatedList key="list" className="slide currentSituation">
+                {sources.map(({ name, alt }, i: number) => {
                     const src = `images/${name}.jpg`;
                     return (
                         <AnimatedImg
-                            pose={index === i ? 'selected' : 'unselected'}
                             className="picture"
-                            key={name}
-                            src={src}
-                        />
+                            pose={index === i ? 'selected' : 'unselected'}
+                            key={src}>
+                            <img src={src} alt={alt} />
+                            {index === i && <p>{alt}</p>}
+                        </AnimatedImg>
                     );
                 })}
-            </PoseGroup>
-        </AnimatedList>
+            </AnimatedList>
+        </div>
     );
 };
 

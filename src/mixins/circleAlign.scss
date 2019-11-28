@@ -1,0 +1,32 @@
+// based on this
+//  https://css-tricks.com/snippets/sass/placing-items-circle/
+
+@mixin on-circle($item-count, $circle-size, $item-size, $angle) {
+    position: relative;
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: 50%;
+    padding: 0;
+    list-style: none;
+
+    > * {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -($item-size / 2);
+        width: $item-size;
+        height: $item-size;
+
+        $angle: ($angle / $item-count);
+        $rot: 0;
+
+        @for $i from 1 through $item-count {
+            &:nth-of-type(#{$i}) {
+                transform: rotate($rot * 1deg) translate($circle-size / 2) rotate($rot * -1deg);
+            }
+
+            $rot: $rot + $angle;
+        }
+    }
+}

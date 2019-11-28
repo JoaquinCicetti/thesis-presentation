@@ -5,7 +5,7 @@ import './WhatIs.scss';
 const WhatIs: React.FC = () => {
     const { updateTitle } = useTitle();
     useEffect(() => {
-        updateTitle('Un banco de pruebas?');
+        updateTitle('🤔');
     }, []);
     return (
         <div className="slide">

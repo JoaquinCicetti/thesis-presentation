@@ -83,7 +83,7 @@ label {
 
 .bg {
     background-image: linear-gradient(60deg, #dedede 50%, $primaryColorLight 50%);
-    animation: slide 12s ease-in-out infinite alternate;
+    animation: slide 120s ease-in-out infinite alternate;
     bottom: 0;
     left: -50%;
     opacity: 0.5;
@@ -92,7 +92,7 @@ label {
     top: 0;
     &::before {
         background-image: linear-gradient(-60deg, #dedede00 50%, $primaryColorLight 50%);
-        animation: slide 7s ease-in-out infinite alternate;
+        animation: slide 72s ease-in-out infinite alternate;
         bottom: 0;
         left: -50%;
         opacity: 1;
@@ -103,7 +103,7 @@ label {
     }
     &::after {
         background-image: linear-gradient(660deg, #dedede00 50%, $primaryColorLight 50%);
-        animation: slide 9s ease-in-out infinite alternate;
+        animation: slide 96s ease-in-out infinite alternate;
         bottom: 0;
         left: -50%;
         opacity: 1;

@@ -1,23 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useTitle } from '../../hooks';
 import './Thanks.scss';
 
 const CurrentSituation: React.FC = () => {
+    const { updateTitle } = useTitle();
+    useEffect(() => {
+        updateTitle('🙏');
+    }, []);
     return (
         <div className="title">
-            <span className="text write" data-splitting="lines">
-                RETRO
-                <br />
-                LASER
-                <br />
-                WRITE
-            </span>
-            <span aria-hidden="true" className="text laser" data-splitting="lines">
-                RETRO
-                <br />
-                LASER
-                <br />
-                WRITE
-            </span>
+            <h1>Muchas gracias</h1>
         </div>
     );
 };

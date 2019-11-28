@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import posed, { PoseGroup } from 'react-pose';
 import { Route, Switch, Link } from 'react-router-dom';
 import {
+    Break,
     Calibration,
     Console,
     CurrentSituation,
@@ -10,8 +11,10 @@ import {
     Title,
     WhatIs,
     Speed,
+    Schematic,
     Thanks,
     Torque,
+    Video,
 } from './pages';
 import { useTitle, useKeyDown } from './hooks';
 import './App.scss';
@@ -21,10 +24,10 @@ const RouteContainer = posed.div({
         opacity: 1,
         left: 0,
         transition: {
-            default: { duration: 500 },
+            default: { duration: 1000 },
         },
     },
-    exit: { opacity: 0, left: '-30%' },
+    exit: { opacity: 0, left: '-20%' },
 });
 
 const Header = posed.span({
@@ -84,6 +87,7 @@ const App: React.FC = () => {
                             </Header>
                             <RouteContainer key={`routerContainer${location.key}`}>
                                 <Switch location={location} key={'switch'}>
+                                    <Route path={`/break`} component={Break} key="break" />
                                     <Route
                                         path={`/calibration`}
                                         component={Calibration}
@@ -101,10 +105,16 @@ const App: React.FC = () => {
                                         component={MainBlocks}
                                         key="main-blocks"
                                     />
+                                    <Route
+                                        path={`/schematic`}
+                                        component={Schematic}
+                                        key="schematic"
+                                    />
                                     <Route path={`/speed`} component={Speed} key="speed" />
                                     <Route path={`/thanks`} component={Thanks} key="thanks" />
                                     <Route path={`/title`} component={Title} key="title" />
                                     <Route path={`/torque`} component={Torque} key="torque" />
+                                    <Route path={`/video`} component={Video} key="video" />
                                     <Route path={`/what-is`} component={WhatIs} key="what-is" />
                                 </Switch>
                             </RouteContainer>

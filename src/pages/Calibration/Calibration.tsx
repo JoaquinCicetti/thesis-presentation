@@ -1,17 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect} from 'react';
 import { useTitle } from '../../hooks';
-import { Player } from 'video-react';
-import 'video-react/dist/video-react.css';
+import './Calibration.scss';
+
 const Calibration: React.FC = () => {
     const { updateTitle } = useTitle();
     useEffect(() => {
-        updateTitle(' ');
+        updateTitle('Calibración');
     }, []);
     return (
-        <div className="slide calibration">
-            <Player className="player" autoPlay>
-                <source src="/videos/calibration.mp4" />
-            </Player>
+        <div className="slide">
+          <h1>Calibracion de la celda de carga</h1>
         </div>
     );
 };

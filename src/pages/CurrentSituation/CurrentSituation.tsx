@@ -9,8 +9,8 @@ const AnimatedList = posed.div({
     },
     enter: {
         opacity: 1,
-        staggerChildren: 100,
-        delayChildren: 350,
+        staggerChildren: 120,
+        delayChildren: 400,
         transition: {
             default: { duration: 100 },
         },
@@ -25,7 +25,7 @@ const Overlay = posed.div({
         opacity: 1,
         zIndex: 2,
         transition: {
-            default: { duration: 100 },
+            default: { duration: 150 },
         },
     },
 });

@@ -9,6 +9,7 @@ const Speed: React.FC = () => {
     return (
         <div className="slide">
             <span className="line right top" />
+            <h1>Torque</h1>
             <span className="line left bottom" />
         </div>
     );

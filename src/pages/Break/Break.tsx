@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
 import { useTitle } from '../../hooks';
-import './Speed.scss';
-const Speed: React.FC = () => {
+import './Break.scss';
+const Break: React.FC = () => {
     const { updateTitle } = useTitle();
     useEffect(() => {
-        updateTitle('🏃‍♀💨');
+        updateTitle('noencontreicono');
     }, []);
     return (
         <div className="slide">
             <span className="line left top" />
-            <h1>Velocidad</h1>
-            <span className="line right bottom" />
+            <h1>Break</h1>
         </div>
     );
 };
 
-export default Speed;
+export default Break;

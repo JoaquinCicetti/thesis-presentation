@@ -14,7 +14,7 @@ const Calibration: React.FC = () => {
         process.env.NODE_ENV === 'development' ? '/images' : '/thesis-presentation/images';
     useEffect(() => {
         updateTitle('Calibración de la celda de carga');
-    }, []);
+    }, [updateTitle]);
     return (
         <div className="slide calibration">
             <Img src={`${urlPrefix}/calibration.png`} />

@@ -7,7 +7,7 @@ const Title: React.FC = () => {
     const urlPrefix = process.env.NODE_ENV === 'development' ? '/icons' : '/thesis-presentation/icons';
     useEffect(() => {
         updateTitle('Proyecto final de ingeniería');
-    }, []);
+    }, [updateTitle]);
     return (
         <div className="slide">
             <p className="main-title">
@@ -17,17 +17,17 @@ const Title: React.FC = () => {
                 <span>Alumnos</span>
                 <hr />
                 <div>
-                    <img className="avatar" src={`${urlPrefix}/avatar.png`} />
+                    <img className="avatar" alt='avatar-icon' src={`${urlPrefix}/avatar.png`} />
                     Cicetti, Joaquín
                 </div>
                 <div>
-                    <img className="avatar" src={`${urlPrefix}/avatar.png`} />
+                    <img className="avatar" alt='avatar-icon' src={`${urlPrefix}/avatar.png`} />
                     Morelli, Nahuel
                 </div>
                 <span>Director</span>
                 <hr />
                 <div>
-                    <img className="avatar director" src={`${urlPrefix}/avatar-director.png`} />
+                    <img className="avatar director" alt='avatar-icon' src={`${urlPrefix}/avatar-director.png`} />
                     Simón, José
                 </div>
             </div>

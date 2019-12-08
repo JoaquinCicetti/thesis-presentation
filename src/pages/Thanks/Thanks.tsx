@@ -6,7 +6,7 @@ const CurrentSituation: React.FC = () => {
     const { updateTitle } = useTitle();
     useEffect(() => {
         updateTitle('🙏');
-    }, []);
+    }, [updateTitle]);
     return (
         <div className="title">
             <h1>Muchas gracias</h1>

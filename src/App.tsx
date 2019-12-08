@@ -1,83 +1,107 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import posed, { PoseGroup } from 'react-pose';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, Link, useHistory, useLocation } from 'react-router-dom';
+import socketIo from 'socket.io-client';
+import QRCode from 'react-qr-code';
 import {
     Break,
     Calibration,
+    Conclusions,
     Console,
     CurrentSituation,
+    Enhancements,
+    Linealization,
     MainBlocks,
+    Objectives,
     pageIndex,
-    Title,
-    WhatIs,
+    Requirements,
     Speed,
     Schematic,
     Thanks,
+    Title,
     Torque,
     Video,
+    WhatIs,
 } from './pages';
 import { useTitle, useKeyDown } from './hooks';
 import './App.scss';
 
-const RouteContainer = posed.div({
-    enter: {
-        opacity: 1,
-        left: 0,
-        transition: {
-            default: { duration: 1000 },
-        },
-    },
-    exit: { opacity: 0, left: '-20%' },
-});
+const socket = socketIo('http://localhost:3002');
 
-const Header = posed.span({
-    collapsed: {
-        fontSize: '2em',
-        height: '10vh',
-        transition: { duration: 200 },
-    },
-    expanded: {
-        fontSize: '3em',
-        height: '50vh',
-        transition: { duration: 200 },
-    },
-});
-const Controls = posed.div({
-    collapsed: {
-        height: '5vh',
-        transition: { duration: 200 },
-    },
-    expanded: {
-        height: '50vh',
-        transition: { duration: 200 },
-    },
-});
+declare global {
+    interface Window {
+        serverIP: string;
+    }
+}
+
+interface Update {
+    title: string;
+    index: number;
+}
+interface Shortcut {
+    index: number;
+}
 const App: React.FC = () => {
     const leftArrow = useRef(null);
     const rightArrow = useRef(null);
     const { title } = useTitle();
-    const urlPrefix = process.env.NODE_ENV === 'development' ? '/icons' : '/thesis-presentation/icons';
+    const history = useHistory();
+    const location = useLocation();
+    const urlPrefix =
+        process.env.NODE_ENV === 'development' ? '/icons' : '/thesis-presentation/icons';
+
+    const clickRight = (): void => {
+        if (rightArrow && rightArrow.current && typeof rightArrow.current.click === 'function')
+            rightArrow.current.click();
+    };
+    const clickLeft = (): void => {
+        if (leftArrow && leftArrow.current && typeof leftArrow.current.click === 'function')
+            leftArrow.current.click();
+    };
     useKeyDown({
-        ArrowLeft: _ => {
-            if (leftArrow && leftArrow.current && typeof leftArrow.current.click === 'function')
-                leftArrow.current.click();
-        },
+        ArrowLeft: clickLeft,
     });
     useKeyDown({
-        ArrowRight: _ => {
-            if (rightArrow && rightArrow.current && typeof rightArrow.current.click === 'function')
-                rightArrow.current.click();
-        },
+        ArrowRight: clickRight,
     });
+    // notify slide changes
+    useEffect(() => {
+        const slide = location.pathname.replace('/', '');
+        const index = pageIndex.indexOf(slide);
+        socket.emit('update', {
+            index: index >= 0 ? index : 0,
+            slide,
+        });
+    }, [location]);
+
+    useEffect(() => {
+        // process commands
+        socket.on('command', ({ command }: { command: string }) => {
+            if (command === 'next') clickRight();
+            else clickLeft();
+        });
+        // shortcut to the slide
+        socket.on('shortcut', (shortcut: Shortcut) => {
+            const { index = 0 } = shortcut;
+
+            const route = `/${pageIndex[index]}`;
+            history.push(route);
+        });
+        // broadcast to update the range max value
+        socket.on('new user', () => {
+            socket.emit('count', pageIndex.length);
+        });
+    }, []);
+
     return (
         <div className="app">
-            <div className="bg"></div>
             <Route
                 render={({ location }) => {
                     const { pathname } = location;
                     const index = pageIndex.indexOf(pathname.replace('/', ''));
                     const nextSlide = pageIndex[index + 1] || '';
                     const prevSlide = pageIndex[index - 1] || '';
+                    const { serverIP = 'localhost' } = window;
                     return (
                         <PoseGroup>
                             <Header
@@ -96,15 +120,39 @@ const App: React.FC = () => {
                                     />
                                     <Route path={`/console`} component={Console} key="console" />
                                     <Route
+                                        path={`/conclusions`}
+                                        component={Conclusions}
+                                        key="conclusions"
+                                    />
+                                    <Route
                                         path={`/current-situation`}
                                         component={CurrentSituation}
                                         key="current-situation"
                                     />
-
+                                    <Route
+                                        path={`/enhancements`}
+                                        component={Enhancements}
+                                        key="enhancements"
+                                    />
+                                    <Route
+                                        path={`/linealization`}
+                                        component={Linealization}
+                                        key="linealization"
+                                    />
                                     <Route
                                         path={`/main-blocks`}
                                         component={MainBlocks}
                                         key="main-blocks"
+                                    />
+                                    <Route
+                                        path={`/objectives`}
+                                        component={Objectives}
+                                        key="objectives"
+                                    />
+                                    <Route
+                                        path={`/requirements`}
+                                        component={Requirements}
+                                        key="requirements"
                                     />
                                     <Route
                                         path={`/schematic`}
@@ -134,14 +182,27 @@ const App: React.FC = () => {
                                 )}
                                 {index >= 0 && <span className="index">{index}</span>}
                                 {index < pageIndex.length && (
-                                    <Link ref={rightArrow} to={`/${nextSlide}`}>
+                                    <Link
+                                        ref={rightArrow}
+                                        to={`/${nextSlide}`}
+                                        className="noDecoration">
                                         {index >= 0 ? (
                                             <img
                                                 alt="icon-arrow-right"
                                                 src={`${urlPrefix}/arrow-right.png`}
                                             />
                                         ) : (
-                                            <img alt="icon-play" src={`${urlPrefix}/play.png`} />
+                                            <>
+                                                {' '}
+                                                <QRCode
+                                                    level="L"
+                                                    fgColor="#212121"
+                                                    size={150}
+                                                    bgColor="#ffffff00"
+                                                    value={`http://${serverIP}:3002/control`}
+                                                />
+                                                <p className="qrdetail">Conectar control</p>
+                                            </>
                                         )}
                                     </Link>
                                 )}
@@ -150,8 +211,44 @@ const App: React.FC = () => {
                     );
                 }}
             />
+            <div className="bg" />
         </div>
     );
 };
 
 export default App;
+
+const RouteContainer = posed.div({
+    enter: {
+        opacity: 1,
+        left: 0,
+        transition: {
+            default: { duration: 200 },
+            beforeChildren: true,
+        },
+    },
+    exit: { opacity: 0, left: '-20%' },
+});
+
+const Header = posed.span({
+    collapsed: {
+        fontSize: '2em',
+        height: '10vh',
+        transition: { duration: 200 },
+    },
+    expanded: {
+        fontSize: '3em',
+        height: '50vh',
+        transition: { duration: 200 },
+    },
+});
+const Controls = posed.div({
+    collapsed: {
+        height: '5vh',
+        transition: { duration: 200 },
+    },
+    expanded: {
+        height: '50vh',
+        transition: { duration: 200 },
+    },
+});

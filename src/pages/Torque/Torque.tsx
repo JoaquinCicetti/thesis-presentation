@@ -4,13 +4,38 @@ import './Torque.scss';
 const Speed: React.FC = () => {
     const { updateTitle } = useTitle();
     useEffect(() => {
-        updateTitle('💪');
+        updateTitle('Torque');
     }, []);
     return (
         <div className="slide">
-            <span className="line right top" />
-            <h1>Torque</h1>
-            <span className="line left bottom" />
+            <span className="line left top" />
+            <div className="torque">
+                <p className="title">Métodos de medición</p>
+                <ul className="list">
+                    <li className="item">
+                        ...
+                        <ul className="details">
+                            <li className="good">...</li>
+                            <li className="bad">...</li>
+                        </ul>
+                    </li>
+                    <li className="item">
+                        ...
+                        <ul className="details">
+                            <li className="good">...</li>
+                            <li className="bad">...</li>
+                        </ul>
+                    </li>
+                    <li className="item">
+                        ...
+                        <ul className="details">
+                            <li className="good">...</li>
+                            <li className="bad">...</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <span className="line right bottom" />
         </div>
     );
 };

@@ -29,13 +29,14 @@ label {
     align-items: center;
     overflow: hidden;
     width: 100%;
-
+    opacity: 1;
     .header {
         display: flex;
         justify-content: center;
         text-align: center;
         align-items: center;
         font-size: 100%;
+        z-index: 2;
     }
     .controls {
         display: flex;
@@ -51,6 +52,10 @@ label {
         .left {
             transform: rotateZ(180deg);
         }
+        .qrdetail {
+            text-align: center;
+            color: $primaryColor;
+        }
     }
     .slide {
         margin: auto;
@@ -60,6 +65,7 @@ label {
         flex-direction: column;
         justify-content: space-evenly;
         overflow: visible;
+        opacity: 1;
         .line {
             position: fixed;
             max-height: 4px;
@@ -80,19 +86,22 @@ label {
         }
     }
 }
-
+.noDecoration{
+    text-decoration: none;
+}
 .bg {
     background-image: linear-gradient(60deg, #dedede 50%, $primaryColorLight 50%);
     animation: slide 120s ease-in-out infinite alternate;
     bottom: 0;
     left: -50%;
-    opacity: 0.5;
+    opacity: 0.4;
     position: fixed;
     right: -50%;
     top: 0;
+    z-index: -1;
     &::before {
         background-image: linear-gradient(-60deg, #dedede00 50%, $primaryColorLight 50%);
-        animation: slide 72s ease-in-out infinite alternate;
+        animation: slide 100s ease-in-out infinite alternate;
         bottom: 0;
         left: -50%;
         opacity: 1;
@@ -102,8 +111,8 @@ label {
         content: '';
     }
     &::after {
-        background-image: linear-gradient(660deg, #dedede00 50%, $primaryColorLight 50%);
-        animation: slide 96s ease-in-out infinite alternate;
+        background-image: linear-gradient(660deg, #dedede10 50%, $primaryColorLight 50%);
+        animation: slide 140s ease-in-out infinite alternate;
         bottom: 0;
         left: -50%;
         opacity: 1;

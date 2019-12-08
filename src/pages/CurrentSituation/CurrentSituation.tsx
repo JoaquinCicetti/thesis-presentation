@@ -65,7 +65,7 @@ const CurrentSituation: React.FC = () => {
         updateTitle(' ');
         const interval = setInterval(() => {
             setIndex((index: number) => (index >= sources.length - 1 ? 0 : index + 1));
-        }, 15000);
+        }, 10000);
         return () => clearInterval(interval);
     }, []);
 

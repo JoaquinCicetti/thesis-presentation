@@ -7,10 +7,17 @@
     .ask {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
         font-size: 3em;
         .icon {
-            max-width: 128px;
+            max-width: 120px;
             margin: 1em;
+        }
+        &:nth-of-type(odd){
+            justify-content: flex-start;
+            .icon{
+                transform: rotateY(180deg) rotateX(180deg);
+            }
         }
     }
 }

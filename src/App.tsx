@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import posed, { PoseGroup } from 'react-pose';
 import { Route, Switch, Link, useHistory, useLocation } from 'react-router-dom';
-import socketIo from 'socket.io-client';
+import { SocketContext, Update, Shortcut } from './context/Socket';
 import QRCode from 'react-qr-code';
 import {
     Break,
@@ -26,27 +26,21 @@ import {
 import { useTitle, useKeyDown } from './hooks';
 import './App.scss';
 
-const socket = socketIo('http://localhost:3002');
-
 declare global {
     interface Window {
         serverIP: string;
     }
 }
 
-interface Update {
-    title: string;
-    index: number;
-}
-interface Shortcut {
-    index: number;
-}
 const App: React.FC = () => {
     const leftArrow = useRef(null);
     const rightArrow = useRef(null);
-    const { title } = useTitle();
+    const { title, updateTitle } = useTitle();
     const history = useHistory();
     const location = useLocation();
+    const { socket } = useContext(SocketContext);
+    const [devices, setDevices] = useState(0);
+
     const urlPrefix =
         process.env.NODE_ENV === 'development' ? '/icons' : '/thesis-presentation/icons';
 
@@ -66,13 +60,19 @@ const App: React.FC = () => {
     });
     // notify slide changes
     useEffect(() => {
+        // get slide name
         const slide = location.pathname.replace('/', '');
+        // get slide index
         const index = pageIndex.indexOf(slide);
-        socket.emit('update', {
+        // update title on restart
+        if (index === -1) updateTitle('Proyecto final de ingeniería');
+        // new update message
+        const message: Update = {
             index: index >= 0 ? index : 0,
             slide,
-        });
-    }, [location]);
+        };
+        socket.emit('update', message);
+    }, [location, updateTitle, socket]);
 
     useEffect(() => {
         // process commands
@@ -83,16 +83,21 @@ const App: React.FC = () => {
         // shortcut to the slide
         socket.on('shortcut', (shortcut: Shortcut) => {
             const { index = 0 } = shortcut;
-
+            // notify a slide change
             const route = `/${pageIndex[index]}`;
             history.push(route);
         });
+    }, [history, socket]);
+    useEffect(() => {
         // broadcast to update the range max value
         socket.on('new user', () => {
             socket.emit('count', pageIndex.length);
         });
-    }, []);
-
+        // broadcast to update the range max value
+        socket.on('devices', devices => {
+            setDevices(devices);
+        });
+    }, [socket]);
     return (
         <div className="app">
             <Route
@@ -101,7 +106,7 @@ const App: React.FC = () => {
                     const index = pageIndex.indexOf(pathname.replace('/', ''));
                     const nextSlide = pageIndex[index + 1] || '';
                     const prevSlide = pageIndex[index - 1] || '';
-                    const { serverIP = 'localhost' } = window;
+                    const serverIP = window.serverIP || 'localhost';
                     return (
                         <PoseGroup>
                             <Header
@@ -192,17 +197,26 @@ const App: React.FC = () => {
                                                 src={`${urlPrefix}/arrow-right.png`}
                                             />
                                         ) : (
-                                            <>
+                                            <div className="connections">
                                                 {' '}
                                                 <QRCode
                                                     level="L"
-                                                    fgColor="#212121"
+                                                    fgColor="#377771"
                                                     size={150}
                                                     bgColor="#ffffff00"
                                                     value={`http://${serverIP}:3002/control`}
                                                 />
                                                 <p className="qrdetail">Conectar control</p>
-                                            </>
+                                                <div className="devices">
+                                                    {new Array(devices).fill(1).map((_, i) => (
+                                                        <img
+                                                            key={`device${i}`}
+                                                            alt="icon-smartphone"
+                                                            src={`${urlPrefix}/smartphone.png`}
+                                                        />
+                                                    ))}
+                                                </div>
+                                            </div>
                                         )}
                                     </Link>
                                 )}

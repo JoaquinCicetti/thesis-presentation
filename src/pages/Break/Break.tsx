@@ -5,7 +5,7 @@ const Break: React.FC = () => {
     const { updateTitle } = useTitle();
     useEffect(() => {
         updateTitle('noencontreicono');
-    }, []);
+    }, [updateTitle]);
     return (
         <div className="slide">
             <span className="line left top" />

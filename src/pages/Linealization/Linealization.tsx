@@ -41,7 +41,7 @@ const Linealization: React.FC = () => {
     const { updateTitle } = useTitle();
     useEffect(() => {
         updateTitle('Linealización');
-    }, []);
+    }, [updateTitle]);
     return (
         <div className="slide linealization">
             <ResponsiveContainer height={'80%'}>

@@ -11,6 +11,7 @@
         position: absolute;
         border: 1px dotted $primaryColor;
         border-radius: 50%;
+        box-shadow: 0 4px 5px rgba(0,0,0,0.16), 0 3px 4px rgba(0,0,0,0.23);
         .icon {
             width: 100%;
         }
@@ -38,6 +39,7 @@
         position: absolute;
         border: 1px dotted $primaryColorLight;
         border-radius: 50%;
+        box-shadow: 0 4px 5px rgba(0,0,0,0.16), 0 3px 4px rgba(0,0,0,0.23);
         .icon {
             width: 100%;
         }

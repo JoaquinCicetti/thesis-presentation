@@ -10,6 +10,7 @@
 body {
     margin: auto;
     overflow-y: hidden;
+    color: #212121;
     background: #faf9f8;
     & * {
         font-family: Exo, source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
@@ -45,6 +46,7 @@ label {
         align-items: center;
         justify-content: center;
         width: 100vw;
+        z-index: 4;
         .index {
             font-size: 1.4em;
             margin: 1em;
@@ -52,9 +54,20 @@ label {
         .left {
             transform: rotateZ(180deg);
         }
-        .qrdetail {
-            text-align: center;
-            color: $primaryColor;
+        .connections {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            .qrdetail {
+                text-align: center;
+                text-transform: uppercase;
+                color: $primaryColor;
+            }
+            .devices {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
         }
     }
     .slide {
@@ -86,7 +99,8 @@ label {
         }
     }
 }
-.noDecoration{
+
+.noDecoration {
     text-decoration: none;
 }
 .bg {

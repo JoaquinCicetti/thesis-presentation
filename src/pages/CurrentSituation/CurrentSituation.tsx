@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext, useRef } from 'react';
 import posed from 'react-pose';
-import { useTitle } from '../../hooks';
+import { useTitle, useKeyDown } from '../../hooks';
 import './CurrentSituation.scss';
+import { SocketContext } from '../../context/Socket';
 
 const AnimatedList = posed.div({
     exit: {
@@ -58,16 +59,37 @@ const sources: Array<ImageData> = [
     { name: 'engine', alt: 'Motor y freno' },
 ];
 const CurrentSituation: React.FC = () => {
+    const { socket } = useContext(SocketContext);
     const { updateTitle } = useTitle();
     const [index, setIndex] = useState(sources.length - 1);
-    const urlPrefix = process.env.NODE_ENV === 'development' ? '/images' : '/thesis-presentation/images';
+    const urlPrefix =
+        process.env.NODE_ENV === 'development' ? '/images' : '/thesis-presentation/images';
+    const interval = useRef(null);
+
+    const iterate = () => {
+        setIndex((index: number) => (index >= sources.length - 1 ? 0 : index + 1));
+    };
+
+    useKeyDown({
+        KeyI: iterate,
+        Space: iterate,
+    });
     useEffect(() => {
         updateTitle(' ');
-        const interval = setInterval(() => {
-            setIndex((index: number) => (index >= sources.length - 1 ? 0 : index + 1));
-        }, 10000);
-        return () => clearInterval(interval);
-    }, []);
+
+        interval.current = setInterval(iterate, 10000);
+        return () => clearInterval(interval.current);
+    }, [updateTitle]);
+
+    useEffect(() => {
+        // next image
+        socket.on('iterate', () => {
+            clearInterval(interval.current);
+            iterate();
+            // stop animation
+            // interval.current = setInterval(iterate, 10000);
+        });
+    }, [socket]);
 
     return (
         <div className="container">

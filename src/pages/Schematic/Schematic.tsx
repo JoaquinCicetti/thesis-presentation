@@ -14,7 +14,7 @@ const Schematic: React.FC = () => {
         process.env.NODE_ENV === 'development' ? '/images' : '/thesis-presentation/images';
     useEffect(() => {
         updateTitle('Esquemático');
-    }, []);
+    }, [updateTitle]);
     return (
         <div className="slide">
             <Img src={`${urlPrefix}/schematic.png`} />

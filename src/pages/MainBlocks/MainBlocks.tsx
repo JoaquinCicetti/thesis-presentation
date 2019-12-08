@@ -21,21 +21,20 @@ const WhatIs: React.FC = () => {
     const urlPrefix = process.env.NODE_ENV === 'development' ? '/icons' : '/thesis-presentation/icons';
     useEffect(() => {
         updateTitle(' ');
-        console.log('enter');
-    }, []);
+    }, [updateTitle]);
     return (
         <div className="slide">
             <AnimatedList className="main-blocks">
                 <AnimatedItem key="engine" className="block first">
-                    <img className="icon" src={`${urlPrefix}/engine.png`} />
+                    <img alt='motor-icon' className="icon" src={`${urlPrefix}/engine.png`} />
                     <span className="name">Motor</span>
                 </AnimatedItem>
                 <AnimatedItem key="panel" className="block">
-                    <img className="icon" src={`${urlPrefix}/panel.png`} />
+                    <img className="icon" alt='consola-icon' src={`${urlPrefix}/panel.png`} />
                     <span className="name">Consola</span>
                 </AnimatedItem>
                 <AnimatedItem key="break" className="block">
-                    <img className="icon" src={`${urlPrefix}/break-small.png`} />
+                    <img className="icon" alt='break-icon' src={`${urlPrefix}/break-small.png`} />
                     <span className="name">Freno</span>
                 </AnimatedItem>
             </AnimatedList>

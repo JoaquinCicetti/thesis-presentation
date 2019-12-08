@@ -5,11 +5,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { TitleProvider } from './context/Title';
+import { SocketProvider } from './context/Socket';
 ReactDOM.render(
     <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <TitleProvider>
-            <App />
-        </TitleProvider>
+        <SocketProvider>
+            <TitleProvider>
+                <App />
+            </TitleProvider>
+        </SocketProvider>
     </BrowserRouter>,
     document.getElementById('root'),
 );

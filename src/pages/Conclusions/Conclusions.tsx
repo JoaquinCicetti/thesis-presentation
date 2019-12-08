@@ -5,7 +5,7 @@ const Conclusions: React.FC = () => {
     const { updateTitle } = useTitle();
     useEffect(() => {
         updateTitle('Conclusiones');
-    }, []);
+    }, [updateTitle]);
     return (
         <div className="slide">
             <span className="line left top" />

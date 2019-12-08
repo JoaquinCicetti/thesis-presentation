@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useTitle } from '../../hooks';
 import { Player, ControlBar } from 'video-react';
 import 'video-react/dist/video-react.css';
@@ -14,7 +14,7 @@ const Video: React.FC = () => {
     const { updateTitle } = useTitle();
     useEffect(() => {
         updateTitle(' ');
-    }, []);
+    }, [updateTitle]);
     return (
         <div className="video">
             <Player autoPlay src={`${urlPrefix}/calibration.mp4`}>

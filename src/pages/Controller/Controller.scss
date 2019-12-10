@@ -1,0 +1,75 @@
+@import '../../theme.scss';
+.controllers {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw!important;
+    .section {
+        display: flex;
+        padding: 4em;
+        box-sizing: border-box;
+        width: 30%;
+        justify-content: space-evenly;
+        align-items: center;
+        background: #fafafa;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.16), 0 3px 4px rgba(0, 0, 0, 0.23);
+        &:nth-of-type(odd){
+            margin-left: 50%;
+        }
+        margin-left: 20%;
+        img {
+            width: 240px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid $primaryColorLight;
+        }
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 0 2em;
+            .title {
+                color: $secondaryColor;
+                font-size: 1.5em;
+                margin: .5em 0;
+            }
+            .list {
+                font-size: 1.2em;
+                line-height: 1.5em;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                .item {
+                    list-style: none;
+                    text-align: left;
+                }
+                .item.bad {
+                    &::before {
+                        content: '•';
+                        padding-right: 8px;
+                        font-size: 1.5em;
+                        color: red;
+                    }
+                }
+                .item.good {
+                    &::before {
+                        content: '•';
+                        padding-right: 8px;
+                        font-size: 1.8em;
+                        color: green;
+                    }
+                }
+                .item.normal {
+                    &::before {
+                        content: '•';
+                        padding-right: 8px;
+                        font-size: 1.8em;
+                        color: orange;
+                    }
+                }
+            }
+        }
+    }
+}

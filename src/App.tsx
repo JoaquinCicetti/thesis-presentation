@@ -10,16 +10,18 @@ import {
     Console,
     CurrentSituation,
     Enhancements,
+    Inputs,
+    Signals,
     Linealization,
     MainBlocks,
     Objectives,
+    Outputs,
     pageIndex,
     Requirements,
     Speed,
-    Schematic,
+    Controller,
     Thanks,
     Title,
-    Torque,
     Video,
     WhatIs,
 } from './pages';
@@ -130,15 +132,22 @@ const App: React.FC = () => {
                                         key="conclusions"
                                     />
                                     <Route
+                                        path={`/controller`}
+                                        component={Controller}
+                                        key="controller"
+                                    />
+                                    <Route
                                         path={`/current-situation`}
                                         component={CurrentSituation}
                                         key="current-situation"
                                     />
+
                                     <Route
                                         path={`/enhancements`}
                                         component={Enhancements}
                                         key="enhancements"
                                     />
+                                    <Route path={`/inputs`} component={Inputs} key="inputs" />
                                     <Route
                                         path={`/linealization`}
                                         component={Linealization}
@@ -154,20 +163,16 @@ const App: React.FC = () => {
                                         component={Objectives}
                                         key="objectives"
                                     />
+                                    <Route path={`/outputs`} component={Outputs} key="outputs" />
                                     <Route
                                         path={`/requirements`}
                                         component={Requirements}
                                         key="requirements"
                                     />
-                                    <Route
-                                        path={`/schematic`}
-                                        component={Schematic}
-                                        key="schematic"
-                                    />
+                                    <Route path={`/signals`} component={Signals} key="signals" />
                                     <Route path={`/speed`} component={Speed} key="speed" />
                                     <Route path={`/thanks`} component={Thanks} key="thanks" />
                                     <Route path={`/title`} component={Title} key="title" />
-                                    <Route path={`/torque`} component={Torque} key="torque" />
                                     <Route path={`/video`} component={Video} key="video" />
                                     <Route path={`/what-is`} component={WhatIs} key="what-is" />
                                 </Switch>

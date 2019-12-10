@@ -1,0 +1,75 @@
+@import '../../theme.scss';
+.outputs {
+    // sorry again
+    width: 100vw !important;
+    top: 0;
+    left: 0;
+    display: flex;
+
+    .diagram {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+        width: 80%;
+        .connector {
+            position: absolute;
+            left: 10%;
+            top: 50%;
+            height: 2px;
+            background: #212121;
+        }
+        .block {
+            height: 200px;
+            //width: 320px;
+            background: #fafafa;
+            box-shadow: 0 4px 5px rgba(0, 0, 0, 0.16), 0 3px 4px rgba(0, 0, 0, 0.23);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            padding: 1em .5em;
+            .title {
+                font-size: 1.2em;
+                text-align: center;
+                color: $secondaryColor;
+                margin: 0;
+            }
+            .connections {
+                width: 100%;
+                padding: 0.5em;
+                display: flex;
+                font-size: 1.2em;
+                justify-content: space-between;
+                align-items: center;
+                span {
+                    transform: translateY(-25px);
+                }
+                img {
+                    width: 60%;
+                    height: 150px;
+                    width: 150px;
+                    object-fit: cover;
+                    margin: auto;
+                    border-radius: 50%;
+                    background: $primaryColorLight;
+                }
+            }
+        }
+        .result {
+            height: 40vh;
+            width: 180px;
+            background: #fafafa;
+            box-shadow: 0 4px 5px rgba(0, 0, 0, 0.16), 0 3px 4px rgba(0, 0, 0, 0.23);
+            padding: 1em;
+            display: flex;
+            .title {
+                font-size: 1.2em;
+                text-align: center;
+                color: $secondaryColor;
+                margin: auto;
+            }
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import posed from 'react-pose';
 import { tween } from 'popmotion';
 import { interpolate } from 'flubber';
@@ -11,10 +11,10 @@ const morphTransition: Transition = ({ from, to }) =>
     tween({
         from: 0,
         to: 1,
-        duration: 250,
+        duration: 200,
     }).pipe(interpolate(from, to));
 
-    const Paths = Object.entries(Icons).reduce((paths, [name, path]) => {
+const Paths = Object.entries(Icons).reduce((paths, [name, path]) => {
     const icon = {
         d: path,
         transition: morphTransition,
@@ -25,16 +25,23 @@ const morphTransition: Transition = ({ from, to }) =>
 const Icon = posed.path(Paths);
 
 interface Props {
+    className?: string;
     icon: string;
     width?: number;
     height?: number;
+    ref?: any;
 }
-const MorphingIcon: React.FC<Props> = ({ icon, height, width }) => {
+const MorphingIcon: React.FC<Props> = ({ className, icon, height, width }, ref) => {
     return (
-        <svg className="morphingIcon" width={width} height={height} viewBox="0 0 64 64">
+        <svg
+            ref={ref}
+            className={`morphingIcon ${className}`}
+            width={width}
+            height={height}
+            viewBox="0 0 32 32">
             <Icon pose={icon} />
         </svg>
     );
 };
 
-export default MorphingIcon;
+export default forwardRef(MorphingIcon);

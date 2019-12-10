@@ -9,6 +9,7 @@ import {
     CartesianGrid,
     Legend,
     ResponsiveContainer,
+    Tooltip,
 } from 'recharts';
 const data = [
     {
@@ -47,10 +48,18 @@ const Linealization: React.FC = () => {
             <ResponsiveContainer height={'80%'}>
                 <LineChart data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis type="number" domain={[0, 'dataMax + 5']}  dataKey="kg" />
-                    <YAxis  />
+                    <XAxis name='Kg.' tickCount={12} type="number" domain={[0, 'dataMax + 5']} dataKey="kg" />
+                    <YAxis name='Volts'/>
                     <Legend />
-                    <Line type="linear" dataKey="v" stroke="#377771" strokeWidth={4} dot={{  strokeWidth: 5 }}  name="Voltios vs Kilogramos." />
+                    <Tooltip />
+                    <Line
+                        type="linear"
+                        dataKey="v"
+                        stroke="#7f2b32"
+                        strokeWidth={2}
+                        dot={{ strokeWidth: 6 }}
+                        name="Volts vs Kg"
+                    />
                 </LineChart>
             </ResponsiveContainer>
         </div>

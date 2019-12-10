@@ -21,9 +21,9 @@
         @for $i from 0 to 5 {
             div:nth-of-type(#{$i + 1}).picture {
                 position: absolute;
-                left: $i * 10% + 15%;
-                top: $i * 8% + 10%;
-                max-width: 30%;
+                left: $i * 5% + 25%;
+                top: $i * 5% + 15%;
+                max-width: 35%;
                 p {
                     width: 100%;
                     text-align: center;

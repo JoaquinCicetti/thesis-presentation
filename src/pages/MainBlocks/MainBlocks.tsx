@@ -20,7 +20,7 @@ const WhatIs: React.FC = () => {
     const { updateTitle } = useTitle();
     const urlPrefix = process.env.NODE_ENV === 'development' ? '/icons' : '/thesis-presentation/icons';
     useEffect(() => {
-        updateTitle(' ');
+        updateTitle('Partes principales');
     }, [updateTitle]);
     return (
         <div className="slide">

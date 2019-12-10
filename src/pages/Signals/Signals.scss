@@ -1,0 +1,61 @@
+@import '../../theme.scss';
+.signal {
+    // sorry, I've no time to fix it
+    width: 100vw !important;
+    position: relative;
+    .mobile {
+        position: absolute;
+        height: 128px;
+        width: 100%;
+        top: 15%;
+        &::after {
+            content: '•';
+            position: absolute;
+            left: 36px;
+            top: 146px;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: $secondaryColor;
+            opacity: 0.6;
+        }
+    }
+    .way {
+        border: 3px dashed $primaryColorLight;
+        height: 0px;
+        width: 76%;
+        position: absolute;
+        top: 32%;
+        left: 12%;
+    }
+    .description {
+        text-align: center;
+        width: 30%;
+        left: 35%;
+        position: absolute;
+        .title {
+            font-size: 2.4em;
+            color: $secondaryColor;
+        }
+        .body {
+            text-align: left;
+            font-size: 1.2em;
+        }
+        .examples {
+            margin: 0;
+            margin: 2em 0;
+            text-align: left;
+            .item {
+                list-style: none;
+                margin: 0.3em 0;
+                font-size: 1.5em;
+                width: 80%;
+                &:before {
+                    content: '•';
+                    padding-right: 8px;
+                    color: $secondaryColor;
+                }
+            }
+        }
+    }
+}

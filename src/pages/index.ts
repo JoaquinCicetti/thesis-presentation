@@ -20,9 +20,10 @@ export { default as WhatIs } from './WhatIs/WhatIs';
 // slides order
 export const pageIndex = [
     'title',
-    'current-situation',
     'what-is',
     'main-blocks',
+    'current-situation',
+    'state',
     'console',
     'requirements',
     'objectives',

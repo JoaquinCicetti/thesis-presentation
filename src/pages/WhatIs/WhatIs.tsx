@@ -14,7 +14,7 @@ const WhatIs: React.FC = () => {
             <div className="asks">
                 <div className="ask">
                     <img className="icon" alt="ask-icon" src={`${urlPrefix}/ask-2.png`} />
-                    Qué es un banco de pruebas
+                    Qué es un banco de pruebas genérico
                 </div>
                 <div className="ask">
                     Para qué sirve

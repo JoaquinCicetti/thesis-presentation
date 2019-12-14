@@ -52,14 +52,14 @@ const Outputs: React.FC = () => {
                     </div>
                 </AnimatedBlock>
                 <AnimatedBlock key="speed-block3" className="block">
-                    <p className="title">Celda de carga</p>
+                    <p className="title">Actuador de la ventilación</p>
                     <div className="connections">
                         <span>
                             Tensión
                             <br />
                             [V]
                         </span>
-                        <img alt="celda-icon" src={`${urlPrefix}/load-cell.png`} />
+                        <img alt="celda-icon" src={`${urlPrefix}/pistas.jpg`} />
                         <span>
                             Ventilación
                             <br />
@@ -89,35 +89,20 @@ const Outputs: React.FC = () => {
                         </span>
                     </div>
                 </AnimatedBlock>
+
                 <AnimatedBlock key="torque-block3" className="block">
-                    <p className="title">Adaptador</p>
+                    <p className="title">Actuador del freno</p>
                     <div className="connections">
                         <span>
                             Tensión
                             <br />
                             [V]
                         </span>
-                        <img alt="celda-icon" src={`${urlPrefix}/schematic.png`} />
+                        <img alt="celda-icon" src={`${urlPrefix}/pistas.jpg`} />
                         <span>
-                            Tensión
+                            Torque
                             <br />
-                            [mV]
-                        </span>
-                    </div>
-                </AnimatedBlock>
-                <AnimatedBlock key="torque-block4" className="block">
-                    <p className="title">Encoder</p>
-                    <div className="connections">
-                        <span>
-                            Velocidad
-                            <br />
-                            [PPV]
-                        </span>
-                        <img alt="celda-icon" src={`${urlPrefix}/encoder.png`} />
-                        <span>
-                            Tensión
-                            <br />
-                            [V]
+                            [Kg]
                         </span>
                     </div>
                 </AnimatedBlock>

@@ -3,38 +3,56 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    .title {
-        text-align: center;
-        margin: 0 0 0.5em;
-        font-size: 2em;
-        font-weight: bold;
-        color: $primaryColor;
-    }
+    background: $background;
+    max-width: 720px;
     .list {
-        font-size: 1.3em;
+        font-size: 1.4em;
         line-height: 1.5em;
-        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        border-radius: 4px;
+        box-shadow: $boxShadow;
         .item {
             margin: 1em 0;
-            .details {
-                list-style: none;
-                .bad {
-                    &::before {
-                        content: '•';
-                        padding-right: 8px;
-                        font-size: 1.5em;
-                        color: red;
+            list-style: none;
+            width: 100%;
+            .title {
+                text-align: left;
+                font-size: 1.4em;
+                font-weight: bold;
+                color: $primaryColor;
+                margin: 0;
+            }
+            .row {
+                display: flex;
+                justify-content: space-between;
+                margin: .5em 0;
+                .resolution {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    .value {
+                        margin: 0;
+                        font-size: 1.8em;
+                        color: $secondaryColor;
+                        .unit {
+                            font-size: .5em;
+                        }
                     }
-                }
-                .good {
-                    &::before {
-                        content: '•';
-                        padding-right: 8px;
-                        font-size: 1.5em;
-                        color: green;
+                    .label {
+                        font-size: 1em;
+                        color: #212121;
+                        margin: 0.4em 0;
                     }
                 }
             }
+        }
+        .subitem {
+            font-size: 1.4rem;
+            margin: 1em 0;
+            list-style: none;
         }
     }
 }

@@ -38,7 +38,7 @@ const MorphingIcon: React.FC<Props> = ({ className, icon, height, width }, ref) 
             className={`morphingIcon ${className}`}
             width={width}
             height={height}
-            viewBox="0 0 32 32">
+            viewBox="0 0 130 60">
             <Icon pose={icon} />
         </svg>
     );

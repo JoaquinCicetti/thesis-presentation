@@ -9,16 +9,15 @@ const AnimatedDiagram = posed.div({
     },
     enter: {
         opacity: 1,
-        staggerChildren: 400,
     },
 });
 const Line = posed.div({
-    exit: { opacity: 0, width: '0' },
-    enter: { opacity: 0.6, width: '80%', transition: { delay: 100, duration: 900 } },
+    exit: { width: '0' },
+    enter: { width: '90%', transition: { duration: 1000 } },
 });
 const AnimatedBlock = posed.div({
-    exit: { opacity: 0, rotateY: '-90deg' },
-    enter: { opacity: 1, rotateY: '0deg' },
+    exit: { rotateY: '-90deg' },
+    enter: { rotateY: '0deg', transition: { delay: 100, duration: 600 } },
 });
 const Inputs: React.FC = () => {
     const { updateTitle } = useTitle();
@@ -29,9 +28,7 @@ const Inputs: React.FC = () => {
     }, [updateTitle]);
     return (
         <div className="slide inputs">
-            <Line key="line" className="connector" />
             <AnimatedDiagram key="speed" className="diagram">
-                <Line key="speed-line" className="connector" />
                 <AnimatedBlock key="speed-block1" className="block">
                     <p className="title">Celda de carga</p>
                     <div className="connections">
@@ -67,9 +64,9 @@ const Inputs: React.FC = () => {
                 <AnimatedBlock key="speed-block3" className="result">
                     <p className="title">Entrada analógica</p>
                 </AnimatedBlock>
+                <Line key="speed-line" className="connector" />
             </AnimatedDiagram>
             <AnimatedDiagram key="torque" className="diagram">
-                <Line key="torque-line" className="connector" />
                 <AnimatedBlock key="torque-block1" className="block">
                     <p className="title">Encoder</p>
                     <div className="connections">
@@ -78,7 +75,7 @@ const Inputs: React.FC = () => {
                             <br />
                             [PPV]
                         </span>
-                        <img alt="celda-icon" src={`${urlPrefix}/encoder.png`} />
+                        <img alt="celda-icon" src={`${urlPrefix}/sensor-hall.png`} />
                         <span>
                             Tensión
                             <br />
@@ -105,6 +102,7 @@ const Inputs: React.FC = () => {
                 <AnimatedBlock key="torque-block3" className="result">
                     <p className="title">Entrada digital</p>
                 </AnimatedBlock>
+                <Line key="torque-line" className="connector" />
             </AnimatedDiagram>
         </div>
     );

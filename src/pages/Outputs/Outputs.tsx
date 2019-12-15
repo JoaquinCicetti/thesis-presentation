@@ -8,16 +8,15 @@ const AnimatedDiagram = posed.div({
     },
     enter: {
         opacity: 1,
-        staggerChildren: 400,
     },
 });
 const Line = posed.div({
-    exit: { opacity: 0, width: '0' },
-    enter: { opacity: 0.6, width: '80%', transition: { delay: 100, duration: 900 } },
+    exit: { width: '0' },
+    enter: { width: '100%', transition: { delay: 100, duration: 1000 } },
 });
 const AnimatedBlock = posed.div({
-    exit: { opacity: 0, rotateY: '-90deg' },
-    enter: { opacity: 1, rotateY: '0deg' },
+    exit: { rotateY: '-90deg' },
+    enter: { rotateY: '0deg', transition: { duration: 600 } },
 });
 
 const Outputs: React.FC = () => {
@@ -32,7 +31,7 @@ const Outputs: React.FC = () => {
             <Line key="line" className="connector" />
             <AnimatedDiagram key="speed" className="diagram">
                 <Line key="speed-line" className="connector" />
-                <AnimatedBlock key="speed-block3" className="result">
+                <AnimatedBlock key="speed-block1" className="result">
                     <p className="title">Salida digital</p>
                 </AnimatedBlock>
                 <AnimatedBlock key="speed-block2" className="block">

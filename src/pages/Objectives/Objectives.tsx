@@ -12,18 +12,23 @@ const Objectives: React.FC = () => {
             <div className="objectives">
                 <ul className="list">
                     <li className="item">
-                        Corrección de los métodos empleados para la adquisición de datos, selección
-                        de sensores, desarrollo de Hardware.
-                    </li>
-                    <li className="item">Memoria de ensayos</li>
-                    <li className="item">Interaccion del usuario con el sistema desarrollado.</li>
-                    <li className="item">
-                        Multiplataforma, con un enfoque Open Source la cual permita modificaciones
-                        futuras.
+                        <p className="headline">
+                            Modificación de métodos de adquisición y procesamiento de señales
+                        </p>
+                        <span>Selección de sensores. Desarrollo de Hardware </span>
                     </li>
                     <li className="item">
-                        Desarrollo e implementación de controlador para freno eléctrico. Interfaz de
-                        usuario.
+                        <p className="headline">Diseño de arquitectura</p>
+                        <span>
+                            Selección de controlador. Desarrollo de Software y su correspondiente
+                            interfaz
+                        </span>
+                    </li>
+                    <li className="item">
+                        <p className="headline">Controlador de freno electrico</p>
+                        <span>
+                            Diseño e implementación de algoritmo de control y hardware relacionado
+                        </span>
                     </li>
                 </ul>
             </div>

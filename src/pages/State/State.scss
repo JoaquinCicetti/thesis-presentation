@@ -1,5 +1,6 @@
 @import '../../theme.scss';
-.conclusions {
+.state {
+    display: flex;
     list-style: none;
     max-width: 720px;
     display: flex;
@@ -15,6 +16,7 @@
         padding: 4rem 3rem 1rem;
         border-radius: 4px;
         .item {
+            width: 100%;
             display: block;
             clear: both;
             counter-increment: list;

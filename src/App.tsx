@@ -5,7 +5,9 @@ import { SocketContext, Update, Shortcut } from './context/Socket';
 import QRCode from 'react-qr-code';
 import {
     Break,
-    Calibration,
+    CalibrationCell,
+    CalibrationEncoder,
+    CalibrationMethods,
     Conclusions,
     Console,
     CurrentSituation,
@@ -18,7 +20,7 @@ import {
     Outputs,
     pageIndex,
     Requirements,
-    Speed,
+    State,
     Controller,
     Thanks,
     Title,
@@ -121,9 +123,19 @@ const App: React.FC = () => {
                                 <Switch location={location} key={'switch'}>
                                     <Route path={`/break`} component={Break} key="break" />
                                     <Route
-                                        path={`/calibration`}
-                                        component={Calibration}
-                                        key="calibration"
+                                        path={`/calibration-cell`}
+                                        component={CalibrationCell}
+                                        key="calibration-cell"
+                                    />
+                                    <Route
+                                        path={`/calibration-encoder`}
+                                        component={CalibrationEncoder}
+                                        key="calibration-encoder"
+                                    />
+                                    <Route
+                                        path={`/calibration-methods`}
+                                        component={CalibrationMethods}
+                                        key="calibration-methods"
                                     />
                                     <Route path={`/console`} component={Console} key="console" />
                                     <Route
@@ -170,7 +182,7 @@ const App: React.FC = () => {
                                         key="requirements"
                                     />
                                     <Route path={`/signals`} component={Signals} key="signals" />
-                                    <Route path={`/speed`} component={Speed} key="speed" />
+                                    <Route path={`/state`} component={State} key="state" />
                                     <Route path={`/thanks`} component={Thanks} key="thanks" />
                                     <Route path={`/title`} component={Title} key="title" />
                                     <Route path={`/video`} component={Video} key="video" />
@@ -190,7 +202,7 @@ const App: React.FC = () => {
                                         />
                                     </Link>
                                 )}
-                                {index >= 0 && <span className="index">{index}</span>}
+                                {index > 0 && <span className="index">{index}</span>}
                                 {index < pageIndex.length && (
                                     <Link
                                         ref={rightArrow}
@@ -242,7 +254,7 @@ const RouteContainer = posed.div({
         opacity: 1,
         left: 0,
         transition: {
-            default: { duration: 200 },
+            default: { duration: 500 },
             beforeChildren: true,
         },
     },
@@ -253,21 +265,21 @@ const Header = posed.span({
     collapsed: {
         fontSize: '2em',
         height: '10vh',
-        transition: { duration: 200 },
+        transition: { duration: 500 },
     },
     expanded: {
         fontSize: '3em',
         height: '50vh',
-        transition: { duration: 200 },
+        transition: { duration: 500 },
     },
 });
 const Controls = posed.div({
     collapsed: {
         height: '5vh',
-        transition: { duration: 200 },
+        transition: { duration: 500 },
     },
     expanded: {
         height: '50vh',
-        transition: { duration: 200 },
+        transition: { duration: 500 },
     },
 });

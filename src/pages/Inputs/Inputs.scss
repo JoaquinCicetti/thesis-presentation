@@ -18,18 +18,19 @@
             left: 10%;
             top: 50%;
             height: 2px;
-            background: #212121;
+            background: #21212199;
         }
         .block {
             height: 200px;
             width: 420px;
-            background: #fafafa;
-            box-shadow: 0 4px 5px rgba(0, 0, 0, 0.16), 0 3px 4px rgba(0, 0, 0, 0.23);
+            background: #fafafaee;
+            box-shadow: $boxShadow;
             display: flex;
             justify-content: flex-start;
             align-items: center;
             flex-direction: column;
             padding: 1em;
+            z-index: 2;
             .title {
                 font-size: 1.2em;
                 text-align: center;
@@ -50,6 +51,7 @@
                     width: 60%;
                     height: 150px;
                     width: 150px;
+                    min-width: 150px;
                     object-fit: cover;
                     margin: auto;
                     border-radius: 50%;
@@ -61,9 +63,10 @@
             height: 40vh;
             width: 240px;
             background: #fafafa;
-            box-shadow: 0 4px 5px rgba(0, 0, 0, 0.16), 0 3px 4px rgba(0, 0, 0, 0.23);
+            box-shadow: $boxShadow;
             padding: 1em;
             display: flex;
+            z-index: 2;
             .title {
                 font-size: 1.2em;
                 text-align: center;

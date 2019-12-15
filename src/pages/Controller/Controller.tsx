@@ -4,8 +4,8 @@ import { useTitle } from '../../hooks';
 import './Controller.scss';
 
 const Controller = posed.div({
-    exit: { opacity: 0, rotateY: '-90deg',  transition: { duration: 200, delay: 400 } },
-    enter: { opacity: 1, rotateY: '0deg' ,transition: { duration: 200, delay: 400 } },
+    exit: { opacity: 0, rotateY: '-90deg', transition: { duration: 200, delay: 400 } },
+    enter: { opacity: 1, rotateY: '0deg', transition: { duration: 200, delay: 400 } },
 });
 
 const Schematic: React.FC = () => {
@@ -17,8 +17,8 @@ const Schematic: React.FC = () => {
     }, [updateTitle]);
     return (
         <div className="slide controllers">
-            <Controller key='section-arduino' className="section">
-                <img src={`${urlPrefix}/arduino.jpg`} />
+            <Controller key="section-arduino" className="section">
+                <img alt="arduino" src={`${urlPrefix}/arduino.jpg`} />
                 <div className="info">
                     <p className="title">Arduino UNO</p>
                     <ul className="list">
@@ -29,7 +29,7 @@ const Schematic: React.FC = () => {
                     </ul>
                 </div>
             </Controller>
-            <Controller key='section-freescale' className="section">
+            <Controller key="section-freescale" className="section">
                 <div className="info">
                     <p className="title">Freescale KL46Z</p>
                     <ul className="list">
@@ -39,7 +39,7 @@ const Schematic: React.FC = () => {
                         <li className="item bad">Complejidad</li>
                     </ul>
                 </div>
-                <img src={`${urlPrefix}/freedom.jpg`} />
+                <img alt="freedom" src={`${urlPrefix}/freedom.jpg`} />
             </Controller>
         </div>
     );

@@ -11,7 +11,7 @@
         position: absolute;
         border: 1px dotted $primaryColor;
         border-radius: 50%;
-        box-shadow: 0 4px 5px rgba(0,0,0,0.16), 0 3px 4px rgba(0,0,0,0.23);
+        box-shadow: $boxShadow;
         .icon {
             width: 100%;
         }
@@ -19,6 +19,7 @@
     @for $i from 0 to 6 {
         span.lines:nth-of-type(#{$i + 1}) {
             position: absolute;
+        
             width: 100px;
             height: 2px;
             border: 1px solid $primaryColor;
@@ -28,6 +29,7 @@
             transform: rotateZ(360 / 6 * ($i) * 1deg)
                 translateX(380px)
                 rotateZ(360 / 6 * $i * (-1deg));
+                background: $background;
         }
     }
     .main {
@@ -39,7 +41,8 @@
         position: absolute;
         border: 1px dotted $primaryColorLight;
         border-radius: 50%;
-        box-shadow: 0 4px 5px rgba(0,0,0,0.16), 0 3px 4px rgba(0,0,0,0.23);
+        box-shadow: $boxShadow;
+        background: $background;
         .icon {
             width: 100%;
         }

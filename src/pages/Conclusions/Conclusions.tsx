@@ -8,22 +8,31 @@ const Conclusions: React.FC = () => {
     }, [updateTitle]);
     return (
         <div className="slide">
-            <span className="line left top" />
+            <span className="line right top" />
             <div className="conclusions">
                 <ul className="list">
-                    <li className="item">Mejora en la adquisición y procesamientos de datos.</li>
-                    <li className="item">Memorias de ensayos</li>
                     <li className="item">
-                        Mejorar las estadísticas sobre el motor para analizar los comportamientos
-                        temporales.
+                        <p className="headline">Calidad de la información</p>
+                        <span>Se mejoró tanto la adquisición como procesamientos de datos</span>
                     </li>
-                    <li className="item">Gráfica de variables.</li>
                     <li className="item">
-                        Se logro desarrollar una aplicación abierta a futuras modificaciones.
+                        <p className="headline">Control y visualización de la información</p>
+                        <span>
+                            {' '}
+                            Mejorar las estadísticas sobre el motor para analizar los
+                            comportamientos temporales. Memorias de ensayos
+                        </span>
+                    </li>
+                    <li className="item">
+                        <p className="headline">Escalabilidad</p>
+                        <span>
+                            Se logró el desarrollo de una solución abierta a modificaciones y
+                            mejoras
+                        </span>
                     </li>
                 </ul>
             </div>
-            <span className="line right bottom" />
+            <span className="line left bottom" />
         </div>
     );
 };

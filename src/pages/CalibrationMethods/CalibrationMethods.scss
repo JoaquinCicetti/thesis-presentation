@@ -1,0 +1,134 @@
+@import '../../theme.scss';
+.calibration-methods {
+    height: 100vh;
+    width: 100vw !important;
+    position: relative;
+    top: 0;
+    left: 0;
+    flex-direction: row !important;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    .left {
+        position: relative;
+        width: 1px;
+        height: 200px;
+        .balance {
+            position: absolute;
+            height: 50%;
+            top: -30%;
+            left: 50%;
+            transform: translate(-50%);
+            width: 240px;
+            height: 180px;
+        }
+        .arrow {
+            position: absolute;
+            top: 168px;
+            left: 50%;
+            transform: translate(-50%);
+            max-height: 36px;
+            transition: ease 0.3s all;
+            opacity: 0;
+        }
+        .arrow.active {
+            opacity: 1;
+        }
+        .label {
+            position: absolute;
+            top: -32px;
+            left: 50%;
+            transform: translate(-50%);
+            font-size: 2em;
+        }
+    }
+    .center {
+        width: 50%;
+        position: relative;
+        .axis {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            &::after {
+                content: '';
+                border-top: 4px solid $secondaryColor;
+                height: 0;
+                width: 100%;
+                transition: ease 0.3s all;
+                filter: grayscale(1);
+            }
+        }
+        .axis.active {
+            &::after {
+                filter: grayscale(0);
+            }
+        }
+        .load-cell {
+            width: 420px;
+            height: 250px;
+            position: absolute;
+            top: 50px;
+            left: 40%;
+            transform: translate(-50%);
+            border: 1px solid $primaryColorLight;
+            padding: 2em 2em 2em 0;
+            border-radius: 4px;
+            box-shadow: $boxShadow;
+            background: $background;
+            .arrow {
+                position: absolute;
+                top: -42px;
+                left: 50%;
+                transform: translate(-50%);
+                max-height: 36px;
+                transition: ease 0.3s all;
+                opacity: 0;
+            }
+            .arrow.active {
+                opacity: 1;
+            }
+            .label {
+                position: absolute;
+                top: 320px;
+                left: 50%;
+                transform: translate(-50%);
+                font-size: 2em;
+                transition: ease 0.3s all;
+            }
+        }
+        &::after {
+            height: 640px;
+            border: 1px dashed $primaryColor;
+            content: '';
+            position: absolute;
+            right: 20%;
+            top: -320px;
+        }
+    }
+    .right {
+        position: relative;
+        .motor {
+            position: relative;
+            background: $primaryColorLight;
+            border-radius: 50%;
+            width: 240px;
+            height: 240px;
+            margin: 142px 0 0 -32px;
+            transition: ease all 0.5s;
+            filter: grayscale(0.8);
+        }
+        .motor.active {
+            filter: grayscale(0);
+            transform: rotateZ(-10deg);
+        }
+        .label {
+            position: absolute;
+            top: 64px;
+            left: 45%;
+            transform: translate(-50%);
+            font-size: 2em;
+            transition: ease 0.3s all;
+        }
+    }
+}

@@ -12,16 +12,26 @@ const Requirements: React.FC = () => {
             <div className="requirements">
                 <ul className="list">
                     <li className="item">
-                        Medición de torque desarrollado por el motor, para lo mismo disponen que el
-                        peso máximo a medir es de 35 Kg.
+                        <p className="title">Sensado:</p>
+                        <span>Medición, visualización y almacenamiento:</span>
+                        <div className="row">
+                            <div className="resolution">
+                                <span className="label">Torque</span>
+                                <p className="value">
+                                    35 <span className="unit">kg</span>
+                                </p>
+                            </div>
+                            <div className="resolution">
+                                <span className="label">Velocidad</span>
+                                <p className="value">
+                                    12.000 <span className="unit">rpm</span>
+                                </p>
+                            </div>
+                        </div>
                     </li>
                     <li className="item">
-                        Medición de velocidad desarrollada por el motor, solicitud 12000 rpm valor
-                        máximo.
+                        <p className="title"> Comando de elementos presentes en la sala</p>
                     </li>
-                    <li className="item">Comando de elementos presentes en la sala.</li>
-                    <li className="item">Gráfica de variables.</li>
-                    <li className="item">Memoria de datos de ensayo.</li>
                 </ul>
             </div>
             <span className="line right bottom" />

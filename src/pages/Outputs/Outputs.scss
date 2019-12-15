@@ -18,13 +18,13 @@
             left: 10%;
             top: 50%;
             height: 2px;
-            background: #212121;
+            background: #21212199;
         }
         .block {
             height: 200px;
             width: 340px;
-            background: #fafafa;
-            box-shadow: 0 4px 5px rgba(0, 0, 0, 0.16), 0 3px 4px rgba(0, 0, 0, 0.23);
+            background: #fafafaee;
+            box-shadow: $boxShadow;
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -61,7 +61,7 @@
             height: 40vh;
             width: 180px;
             background: #fafafa;
-            box-shadow: 0 4px 5px rgba(0, 0, 0, 0.16), 0 3px 4px rgba(0, 0, 0, 0.23);
+            box-shadow: $boxShadow;
             padding: 1em;
             display: flex;
             .title {

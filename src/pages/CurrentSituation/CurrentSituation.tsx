@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext, useRef } from 'react';
 import posed from 'react-pose';
 import { useTitle, useKeyDown } from '../../hooks';
-import './CurrentSituation.scss';
 import { SocketContext } from '../../context/Socket';
+import './CurrentSituation.scss';
 
 const AnimatedList = posed.div({
     exit: {
@@ -55,7 +55,7 @@ const sources: Array<ImageData> = [
     { name: 'console', alt: 'Consola' },
     { name: 'break', alt: 'Freno' },
     { name: 'sensor', alt: 'Encoder' },
-    { name: 'console-2', alt: 'Detalle consola' },
+    { name: 'console-2', alt: 'Control del freno' },
     { name: 'engine', alt: 'Motor y freno' },
 ];
 const CurrentSituation: React.FC = () => {

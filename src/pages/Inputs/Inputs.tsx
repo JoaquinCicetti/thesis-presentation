@@ -32,33 +32,17 @@ const Inputs: React.FC = () => {
                 <AnimatedBlock key="speed-block1" className="block">
                     <p className="title">Celda de carga</p>
                     <div className="connections">
-                        <span>
-                            Torque
-                            <br />
-                            [Kg]
-                        </span>
+                        <span>[Kg]</span>
                         <img alt="celda-icon" src={`${urlPrefix}/load-cell.png`} />
-                        <span>
-                            Tensión
-                            <br />
-                            [V]
-                        </span>
+                        <span>[V]</span>
                     </div>
                 </AnimatedBlock>
                 <AnimatedBlock key="speed-block2" className="block">
                     <p className="title">Adaptador</p>
                     <div className="connections">
-                        <span>
-                            Tensión
-                            <br />
-                            [V]
-                        </span>
+                        <span>[V]</span>
                         <img alt="celda-icon" src={`${urlPrefix}/schematic.png`} />
-                        <span>
-                            Tensión
-                            <br />
-                            [mV]
-                        </span>
+                        <span>[mV]</span>
                     </div>
                 </AnimatedBlock>
                 <AnimatedBlock key="speed-block3" className="result">
@@ -71,14 +55,10 @@ const Inputs: React.FC = () => {
                     <p className="title">Encoder</p>
                     <div className="connections">
                         <span>
-                            Velocidad
-                            <br />
                             [PPV]
                         </span>
                         <img alt="celda-icon" src={`${urlPrefix}/sensor-hall.png`} />
                         <span>
-                            Tensión
-                            <br />
                             [V]
                         </span>
                     </div>
@@ -87,14 +67,10 @@ const Inputs: React.FC = () => {
                     <p className="title">Adaptador</p>
                     <div className="connections">
                         <span>
-                            Tensión
-                            <br />
                             [V]
                         </span>
                         <img alt="celda-icon" src={`${urlPrefix}/schematic.png`} />
                         <span>
-                            Tensión
-                            <br />
                             [mV]
                         </span>
                     </div>

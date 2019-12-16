@@ -77,8 +77,8 @@ const CurrentSituation: React.FC = () => {
     useEffect(() => {
         updateTitle(' ');
 
-        interval.current = setInterval(iterate, 10000);
-        return () => clearInterval(interval.current);
+        //interval.current = setInterval(iterate, 10000);
+        //return () => clearInterval(interval.current);
     }, [updateTitle]);
 
     useEffect(() => {

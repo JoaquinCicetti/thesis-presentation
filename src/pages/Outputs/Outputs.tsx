@@ -43,7 +43,7 @@ const Outputs: React.FC = () => {
                     </div>
                 </AnimatedBlock>
                 <AnimatedBlock key="speed-block3" className="block">
-                    <p className="title">Actuador de la ventilación</p>
+                    <p className="title">Ventilación</p>
                     <div className="connections">
                         <span>[V]</span>
                         <img alt="celda-icon" src={`${urlPrefix}/pistas.jpg`} />
@@ -66,7 +66,7 @@ const Outputs: React.FC = () => {
                 </AnimatedBlock>
 
                 <AnimatedBlock key="torque-block3" className="block">
-                    <p className="title">Actuador del freno</p>
+                    <p className="title">Freno</p>
                     <div className="connections">
                         <span>[V]</span>
                         <img alt="celda-icon" src={`${urlPrefix}/pistas.jpg`} />

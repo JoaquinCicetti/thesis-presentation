@@ -12,13 +12,13 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 4rem 3rem 1rem;
+        padding: 2rem 3rem 1rem;
         border-radius: 4px;
         .item {
             display: block;
             clear: both;
             counter-increment: list;
-            padding-bottom: 3rem;
+            padding-bottom: 1.5rem;
             font-size: 1.6rem;
             line-height: 1.375;
             position: relative;
@@ -26,8 +26,8 @@
 
         .item:before {
             content: counter(list);
-            width: 5rem;
-            height: 5rem;
+            width: 3rem;
+            height: 3rem;
             float: left;
             margin: 0 1.5rem 0.75rem 0;
             color: white;
@@ -41,8 +41,8 @@
         }
 
         .item:after {
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2rem;
+            height: 2rem;
             position: absolute;
             top: 0;
             left: 0;
@@ -54,7 +54,7 @@
 
         .headline {
             padding: 0rem 0 0 0;
-            margin: 0 0 1rem 0;
+            margin: 0 0 .3rem 0;
             color: $secondaryColor;
             font-weight: bold;
         }

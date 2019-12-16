@@ -13,7 +13,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 4rem 3rem 1rem;
+        padding: 1em 2rem 1rem;
         border-radius: 4px;
         .item {
             width: 100%;
@@ -28,8 +28,8 @@
 
         .item:before {
             content: counter(list);
-            width: 5rem;
-            height: 5rem;
+            width: 3rem;
+            height: 3rem;
             float: left;
             margin: 0 1.5rem 0.75rem 0;
             color: white;
@@ -43,8 +43,8 @@
         }
 
         .item:after {
-            width: 2.5rem;
-            height: 2.5rem;
+            width: 2rem;
+            height: 2rem;
             position: absolute;
             top: 0;
             left: 0;
@@ -56,7 +56,7 @@
 
         .headline {
             padding: 0rem 0 0 0;
-            margin: 0 0 1rem 0;
+            margin: 0 0 .5rem 0;
             color: $secondaryColor;
             font-weight: bold;
         }

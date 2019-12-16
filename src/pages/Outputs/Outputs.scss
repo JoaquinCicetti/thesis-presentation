@@ -21,8 +21,8 @@
             background: $primaryColorLight;
         }
         .block {
-            height: 200px;
-            width: 340px;
+            height: 180px;
+            width: 220px;
             background: #fafafaee;
             box-shadow: $boxShadow;
             display: flex;
@@ -31,7 +31,7 @@
             flex-direction: column;
             padding: 1em 0.5em;
             .title {
-                font-size: 1.2em;
+                font-size: 1.6em;
                 text-align: center;
                 color: $secondaryColor;
                 margin: 0;
@@ -47,9 +47,12 @@
                     transform: translateY(-25px);
                 }
                 img {
-                    width: 60%;
-                    height: 150px;
-                    width: 150px;
+                    object-fit: cover;
+                    width: 100%;
+                    min-height: 120px;
+                    max-height: 120px;
+                    max-width: 100px;
+                    min-width: 100px;
                     object-fit: cover;
                     margin: auto;
                     border-radius: 50%;
@@ -66,7 +69,7 @@
             display: flex;
             .title {
                 font-weight: bold;
-                font-size: 1.2em;
+                font-size: 1.6em;
                 text-align: center;
                 color: $secondaryColor;
                 margin: auto;

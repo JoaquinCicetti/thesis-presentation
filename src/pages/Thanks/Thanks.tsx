@@ -8,13 +8,14 @@ import './Thanks.scss';
 const Container = posed.div({
     exit: {
         opacity: 0,
-        rotateZ: '-90deg',
+        rotateZ: '-180deg',
         y: -700,
     },
     enter: {
         opacity: 1,
         rotateZ: '0deg',
         y: 0,
+
     },
 });
 const CurrentSituation: React.FC = () => {
@@ -39,7 +40,7 @@ const CurrentSituation: React.FC = () => {
         updateTitle('Fin');
     }, [updateTitle]);
     useEffect(()=>{
-        setTimeout(_ => setStatus(true), 420);
+        setTimeout(_ => setStatus(true), 900);
     },[])
     return (
         <div className="slide">

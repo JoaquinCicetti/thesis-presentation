@@ -28,12 +28,13 @@
             align-items: center;
             position: relative;
             border-bottom: 4px solid $primaryColor;
-            width: 240px;
-            height: 180px;
+            width: 200px;
+            height: 150px;
             .weight {
                 width: 120px;
-                height: 30px;
+                height: 25px;
                 background: $primaryColorLight;
+                opacity: .7;
                 margin: 2px 0 0 0;
                 border-radius: 4px;
             }
@@ -84,7 +85,7 @@
         position: relative;
         max-width: 420px;
         .chart {
-            height: 250px;
+            height: 200px;
             border: 1px solid $primaryColor;
             padding: 2em 2em 2em 0;
             border-radius: 4px;

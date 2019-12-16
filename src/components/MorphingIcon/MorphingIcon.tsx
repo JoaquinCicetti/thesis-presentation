@@ -11,7 +11,7 @@ const morphTransition: Transition = ({ from, to }) =>
     tween({
         from: 0,
         to: 1,
-        duration: 420,
+        duration: 220,
     }).pipe(interpolate(from, to));
 
 const Paths = Object.entries(Icons).reduce((paths, [name, path]) => {

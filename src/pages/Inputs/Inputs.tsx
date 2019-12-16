@@ -34,15 +34,15 @@ const Inputs: React.FC = () => {
                     <div className="connections">
                         <span>[Kg]</span>
                         <img alt="celda-icon" src={`${urlPrefix}/load-cell.png`} />
-                        <span>[V]</span>
+                        <span>[mV]</span>
                     </div>
                 </AnimatedBlock>
                 <AnimatedBlock key="speed-block2" className="block">
                     <p className="title">Adaptador</p>
                     <div className="connections">
-                        <span>[V]</span>
-                        <img alt="celda-icon" src={`${urlPrefix}/schematic.png`} />
                         <span>[mV]</span>
+                        <img alt="celda-icon" src={`${urlPrefix}/schematic.png`} />
+                        <span>[V]</span>
                     </div>
                 </AnimatedBlock>
                 <AnimatedBlock key="speed-block3" className="result">
@@ -71,7 +71,7 @@ const Inputs: React.FC = () => {
                         </span>
                         <img alt="celda-icon" src={`${urlPrefix}/schematic.png`} />
                         <span>
-                            [mV]
+                            [V]
                         </span>
                     </div>
                 </AnimatedBlock>

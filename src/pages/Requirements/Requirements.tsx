@@ -30,7 +30,8 @@ const Requirements: React.FC = () => {
                         </div>
                     </li>
                     <li className="item">
-                        <p className="title"> Comando de elementos presentes en la sala</p>
+                        <p className="title"> Control</p>
+                        <span>Comando de elementos presentes en la sala</span>
                     </li>
                 </ul>
             </div>

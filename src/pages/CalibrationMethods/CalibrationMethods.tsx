@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useCallback, useMemo } from 'react';
 import ReactSpeedometer from 'react-d3-speedometer';
 import {
     LineChart,
@@ -18,18 +18,17 @@ type Data = { time: number; torque: number };
 const initial = [];
 const datasetLength = 15;
 
-
 const CalibrationMethods: React.FC = () => {
     const { socket } = useContext(SocketContext);
     const { updateTitle } = useTitle();
     const [active, setActive] = useState<boolean>(false);
     const [dataset, setDataset] = useState<Array<Data>>(initial);
     const [currentValue, setCurrentValue] = useState<number>(0);
-    const weight = Math.random() * 30 + 5;
     const urlPrefix =
         process.env.NODE_ENV === 'development' ? '/icons' : '/thesis-presentation/icons';
 
-    const addData = (): void => {
+    const weight = useMemo(() => Math.random() * 30 + 5, [active]);
+    const addData = useCallback((): void => {
         const noise = (Math.random() - 0.5) * 2;
         const newValue = weight + noise;
         setCurrentValue(active ? Math.round(newValue) : 0);
@@ -40,7 +39,7 @@ const CalibrationMethods: React.FC = () => {
             else newDataset = [...prev.slice(1), newData];
             return newDataset;
         });
-    };
+    }, [active]);
     const iterate = () => {
         setActive((prev: boolean) => !prev);
     };
@@ -56,7 +55,7 @@ const CalibrationMethods: React.FC = () => {
                 clearInterval(interval);
             }
         };
-    }, [active]);
+    }, [active, addData]);
 
     useEffect(() => {
         updateTitle('Métodos de validación');

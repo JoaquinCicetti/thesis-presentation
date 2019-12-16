@@ -21,7 +21,7 @@
             position: absolute;
         
             width: 100px;
-            height: 2px;
+            height: 0px;
             border: 1px solid $primaryColor;
             transform: rotateZ(360 / 6 * ($i) * 1deg) translateX(200px);
         }

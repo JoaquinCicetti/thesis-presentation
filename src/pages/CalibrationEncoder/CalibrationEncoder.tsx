@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useCallback, useMemo } from 'react';
 import {
     LineChart,
     Line,
@@ -21,11 +21,11 @@ const CalibrationEncoder: React.FC = () => {
     const [active, setActive] = useState<boolean>(false);
     const [dataset, setDataset] = useState<Array<ChartData>>(initial);
     const [currentValue, setCurrentValue] = useState<number>(0);
-    const weight = Math.random() * 600 + 500;
+    const weight = useMemo(() => Math.random() * 600 + 500, [active]);
     const urlPrefix =
         process.env.NODE_ENV === 'development' ? '/icons' : '/thesis-presentation/icons';
 
-    const addData = (): void => {
+    const addData = useCallback((): void => {
         const noise = (Math.random() - 0.5) * 3;
         const newValue = weight + noise;
         setCurrentValue(active ? Math.round(newValue) : 0);
@@ -36,7 +36,7 @@ const CalibrationEncoder: React.FC = () => {
             else newDataset = [..._prev.slice(1), newData];
             return newDataset;
         });
-    };
+    }, [active]);
     const iterate = (): void => {
         setActive((prev: boolean) => !prev);
     };
@@ -51,7 +51,7 @@ const CalibrationEncoder: React.FC = () => {
                 clearInterval(interval);
             }
         };
-    }, [active]);
+    }, [active, addData]);
     useEffect(() => {
         updateTitle('Método empleado - Encoder');
     }, [updateTitle]);

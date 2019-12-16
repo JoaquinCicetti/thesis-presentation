@@ -82,7 +82,7 @@ const CalibrationCell: React.FC = () => {
                         <span className="wire" />
                         <span className="wire" />
                     </div>
-                    <div className="cpu">
+                    <div className={`cpu`}>
                         <img alt="cpu-icon" key="cpu" src={`${urlPrefix}/cpu-2.png`} />
                     </div>
                     <div className="wire-container">

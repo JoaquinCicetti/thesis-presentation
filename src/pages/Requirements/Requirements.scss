@@ -4,7 +4,7 @@
     justify-content: center;
     flex-direction: column;
     background: $background;
-    max-width: 720px;
+    max-width: 920px;
     .list {
         font-size: 1.4em;
         line-height: 1.5em;
@@ -27,12 +27,13 @@
             }
             .row {
                 display: flex;
-                justify-content: space-between;
+                justify-content: flex-start;
                 margin: .5em 0;
                 .resolution {
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
+                    margin-right: 2em;
                     .value {
                         margin: 0;
                         font-size: 1.8em;

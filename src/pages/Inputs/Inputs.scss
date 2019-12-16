@@ -60,7 +60,7 @@
             }
         }
         .result {
-            height: 40vh;
+            height: 30vh;
             width: 240px;
             background: #fafafa;
             box-shadow: $boxShadow;
@@ -69,6 +69,7 @@
             z-index: 2;
             .title {
                 font-size: 1.2em;
+                font-weight: bold;
                 text-align: center;
                 color: $secondaryColor;
                 margin: auto;

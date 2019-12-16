@@ -37,33 +37,17 @@ const Outputs: React.FC = () => {
                 <AnimatedBlock key="speed-block2" className="block">
                     <p className="title">Adaptador</p>
                     <div className="connections">
-                        <span>
-                            Tensión
-                            <br />
-                            [V]
-                        </span>
+                        <span>[V]</span>
                         <img alt="celda-icon" src={`${urlPrefix}/schematic.png`} />
-                        <span>
-                            Tensión
-                            <br />
-                            [V]
-                        </span>
+                        <span>[V]</span>
                     </div>
                 </AnimatedBlock>
                 <AnimatedBlock key="speed-block3" className="block">
                     <p className="title">Actuador de la ventilación</p>
                     <div className="connections">
-                        <span>
-                            Tensión
-                            <br />
-                            [V]
-                        </span>
+                        <span>[V]</span>
                         <img alt="celda-icon" src={`${urlPrefix}/pistas.jpg`} />
-                        <span>
-                            Ventilación
-                            <br />
-                            [On/Off]
-                        </span>
+                        <span>[On/Off]</span>
                     </div>
                 </AnimatedBlock>
             </AnimatedDiagram>
@@ -75,34 +59,18 @@ const Outputs: React.FC = () => {
                 <AnimatedBlock key="torque-block2" className="block">
                     <p className="title">Adaptador</p>
                     <div className="connections">
-                        <span>
-                            Tensión
-                            <br />
-                            [mV]
-                        </span>
+                        <span>[mV]</span>
                         <img alt="celda-icon" src={`${urlPrefix}/schematic.png`} />
-                        <span>
-                            Tensión
-                            <br />
-                            [mV]
-                        </span>
+                        <span>[mV]</span>
                     </div>
                 </AnimatedBlock>
 
                 <AnimatedBlock key="torque-block3" className="block">
                     <p className="title">Actuador del freno</p>
                     <div className="connections">
-                        <span>
-                            Tensión
-                            <br />
-                            [V]
-                        </span>
+                        <span>[V]</span>
                         <img alt="celda-icon" src={`${urlPrefix}/pistas.jpg`} />
-                        <span>
-                            Torque
-                            <br />
-                            [Kg]
-                        </span>
+                        <span>[Kg]</span>
                     </div>
                 </AnimatedBlock>
             </AnimatedDiagram>

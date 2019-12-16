@@ -16,7 +16,7 @@
         flex-direction: column;
         justify-content: flex-end;
         align-items: center;
-            box-shadow: $boxShadow;
+        box-shadow: $boxShadow;
         padding: 2em;
         box-sizing: border-box;
         border-radius: 4px;
@@ -29,7 +29,7 @@
             border-radius: 50%;
             padding: 1em;
             background: $background;
-            border:1px solid $secondaryColorLight;
+            border: 1px solid $primaryColorLight;
             transition: all ease 0.2s;
             @include on-circle($item-count: 16, $circle-size: 160px, $item-size: 10px);
         }
@@ -84,6 +84,14 @@
                 }
                 margin: 0% 0;
             }
+            .cpu.active {
+                &::after {
+                    content: '';
+                    width: 20px;
+                    height: 20px;
+                    background-color: $secondaryColorLight;
+                }
+            }
             .wire-container {
                 display: flex;
                 align-items: center;
@@ -93,7 +101,7 @@
                 padding-top: 9px;
                 .wire {
                     height: 0px;
-                    background: $primaryColor;
+                    background: $primaryColorLight;
                     height: 4px;
                     width: 94%;
                     margin: 0 0 12px;

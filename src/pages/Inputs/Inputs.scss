@@ -1,0 +1,81 @@
+@import '../../theme.scss';
+.inputs {
+    // sorry again
+    width: 100vw !important;
+    top: 0;
+    left: 0;
+    display: flex;
+
+    .diagram {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+        width: 80%;
+        .connector {
+            position: absolute;
+            left: 10%;
+            top: 50%;
+            height: 2px;
+            background: $primaryColorLight;
+        }
+        .block {
+            height: 180px;
+            width: 220px;
+            background: #fafafaee;
+            box-shadow: $boxShadow;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            padding: 1em;
+            z-index: 2;
+            .title {
+                font-size: 1.6em;
+                text-align: center;
+                color: $secondaryColor;
+                margin: 0;
+            }
+            .connections {
+                object-fit: cover;
+                width: 100%;
+                padding: 0.5em;
+                display: flex;
+                font-size: 1.2em;
+                justify-content: space-between;
+                align-items: center;
+                span {
+                    transform: translateY(-25px);
+                }
+                img {
+                    //width: 60%;
+                    max-height: 120px;
+                    max-width: 120px;
+                    min-width: 120px;
+                    min-height: 120px;
+                    object-fit: cover;
+                    margin: auto;
+                    border-radius: 50%;
+                    background: $primaryColorLight;
+                }
+            }
+        }
+        .result {
+            height: 30vh;
+            width: 240px;
+            background: #fafafa;
+            box-shadow: $boxShadow;
+            padding: 1em;
+            display: flex;
+            z-index: 2;
+            .title {
+                font-size: 1.6em;
+                font-weight: bold;
+                text-align: center;
+                color: $secondaryColor;
+                margin: auto;
+            }
+        }
+    }
+}

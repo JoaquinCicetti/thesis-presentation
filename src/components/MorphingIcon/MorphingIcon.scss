@@ -1,0 +1,14 @@
+@import '../../theme.scss';
+
+.morphingIcon {
+    fill: $primaryColor;
+    display: flex;
+    &:active,
+    &:focus {
+        outline: none;
+    }
+    .icon {
+        margin: auto;
+        text-align: center;
+    }
+}

@@ -1,0 +1,59 @@
+@import '../../theme.scss';
+.requirements {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: $background;
+    max-width: 920px;
+    .list {
+        font-size: 1.4em;
+        line-height: 1.5em;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        border-radius: 4px;
+        box-shadow: $boxShadow;
+        .item {
+            margin: 1em 0;
+            list-style: none;
+            width: 100%;
+            .title {
+                text-align: left;
+                font-size: 1.4em;
+                font-weight: bold;
+                color: $primaryColor;
+                margin: 0;
+            }
+            .row {
+                display: flex;
+                justify-content: flex-start;
+                margin: .5em 0;
+                .resolution {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    margin-right: 2em;
+                    .value {
+                        margin: 0;
+                        font-size: 1.8em;
+                        color: $secondaryColor;
+                        .unit {
+                            font-size: .5em;
+                        }
+                    }
+                    .label {
+                        font-size: 1em;
+                        color: #212121;
+                        margin: 0.4em 0;
+                    }
+                }
+            }
+        }
+        .subitem {
+            font-size: 1.4rem;
+            margin: 1em 0;
+            list-style: none;
+        }
+    }
+}
